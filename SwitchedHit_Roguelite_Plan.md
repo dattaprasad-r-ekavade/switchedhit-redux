@@ -1,0 +1,535 @@
+# SWITCHEDHIT
+
+**CONFIDENTIAL · GAME + BUSINESS PLAN · 2 SEPTEMBER 2026**
+
+**A Flutter Android roguelite deckbuilder about becoming a cricketer**
+
+Street gully → maidans → district → state → franchise trial → international.
+
+You are the player. Not a franchise owner. Not a live-score clone. A career that dies, and a deck that is your technique.
+
+**Status:** The 3D match-replay product is **retired**. `next_app/` and `SwitchedHit_Replay_Plan.docx` have been removed from the repo. This document is the product plan.
+
+**Owner:** Dattaprasad Ekavade · Pune · Play Store account + testers available
+
+**Platform for v1:** Android, Google Play, India-first, English + Hinglish copy. iOS later if the loop holds.
+
+**Business model:** Free-to-play. Rewarded + interstitial ads. In-app purchases. No real-money gambling. No BCCI / ICC / IPL marks.
+
+---
+
+## 1. What I heard (and what this is)
+
+You want **SwitchedHit** as a **new Flutter Android game**: a **roguelite deck builder around cricket**. The player starts at **street level** and climbs toward **international**. It is **player-based** (you *are* the batter / all-rounder), released on the **Play Store**, with **ads and IAPs**, and the job of this document is to say whether that can make money and how to build it.
+
+That combination is rare and commercially interesting:
+
+- Cricket mobile is huge in India and almost entirely **arcade sims** (Real Cricket, WCC) or **management** (Hitwicket).
+- Roguelite deckbuilders are proven on mobile (**Slay the Spire**, **Balatro**, a wave of Balatro-likes).
+- Nobody has a serious **“you are the street batter, your shots are cards, death is being dropped”** game.
+
+The risk is equally clear: India eCPMs are low, cricket IP is legally sharp, and a pay-to-win deckbuilder will get review-bombed. The plan below is built around those constraints.
+
+---
+
+## 2. One-sentence product
+
+**SwitchedHit is a single-player roguelite where each run is one cricketer’s career, each fight is an innings, and your deck is the shots, nerves, and street tricks you refuse to unlearn.**
+
+Tagline options (pick one in production, do not mix):
+
+- *From the gully to the world.*
+- *Build a batter. Break a bowling attack.*
+- *Every run is a career. Every card is a shot.*
+
+---
+
+## 3. Why this can work (market)
+
+### 3.1 Cricket on phones is real demand, not a vibe
+
+- Cricket is ~89% of India’s sports economy (EY / industry wrap 2025–26); fans already live on phones during IPL and World Cups.
+- Glance × InMobi × AppsFlyer (2025 cricket season): **120M** fans engaging beyond the match; **gaming CTRs 6×** during cricket windows; full-screen interstitials **13×** benchmark. Launch and live-ops must sit on the cricket calendar, not against it.
+- Google Play **Top Grossing Sports, India** (mid-Sep 2026, AppBrain): **Cricket League** (Miniclip, 230M installs), **Real Cricket** (Krafton / Nautilus lineage, 82M), **Hitwicket Cricket Game 2026** (20M), **Dream Cricket**, **WCC3**, Stick Cricket. The category prints money for *other people*. It is not empty.
+
+### 3.2 What those games actually earn (calibration, not a forecast)
+
+Public store-intel (treat as order-of-magnitude, after-fee where noted):
+
+| Title | Shape | Signal |
+| --- | --- | --- |
+| Real Cricket (Play, Aug 2026) | Arcade sim, F2P, licensed-feeling | ~**870k downloads / month**, ~**$75k** net that month; **79% India**, 19% Pakistan |
+| Hitwicket publisher (last month) | Strategy / manager | ~**200k downloads**, ~**$90k** revenue; India / Pakistan / Bangladesh |
+| Real Cricket lifetime colour | F2P sports | Sports Business Journal (2024): **350M+ downloads**, ~1M actives; India ~81% of downloads |
+
+Those are **incumbents with years of UA and (in Real Cricket’s case) player-likeness deals**. A new indie does not print $75–90k/month on day 90. Use them as a **ceiling for “if this becomes a known cricket game,”** not a year-one budget.
+
+### 3.3 Deckbuilders on mobile are a proven paying genre
+
+- **Balatro** mobile (premium $9.99, no ads, no IAP): ~$1M first week; ~$4.4M in two months (AppMagic, late 2024); later reporting **~$21.3M mobile revenue**, **3.1M downloads**. Premium *can* work if the game is a phenomenon. We are not planning to be Balatro.
+- **Slay the Spire** mobile: later estimates **~$13–14M** lifetime mobile among premium ports.
+- **Dice of Kalma** (Balatro-like, 2026): **1M+ downloads** across mobile + Steam. The “short addictive run + numbers go up” template still installs.
+
+**Implication:** the *genre* converts. The *cricket* audience installs. The gap is the overlap. That is the product.
+
+### 3.4 The hole in the market
+
+| Existing | What they sell | What they are not |
+| --- | --- | --- |
+| Real Cricket / WCC / Cricket League | Timing, graphics, licensed teams | No deck, no run, no death |
+| Hitwicket | Squad / auction / daily sim | You are a GM, not a batter |
+| Stick Cricket | Fast arcade | No career spine, no buildcraft |
+| Fantasy / RMG | Real money | **Illegal / banned for us** (see §11) |
+| StS / Balatro / Night of Full Moon | Deck runs | No cricket fantasy, no India-first culture |
+
+**SwitchedHit occupies: single-player cricket identity + roguelite run + cards as technique.** That is not on the Play Store today in a form a gully kid would recognise as *their* game.
+
+### 3.5 Audience
+
+**Core (pay and retain):**
+
+- 16–34, India + Pakistan + Bangladesh + Sri Lanka + Gulf + UK / AU diaspora.
+- People who already open cricket games *and* people who play Clash Royale / Brawl Stars / card RPGs but never liked “another Real Cricket.”
+- Session: bus, night after a match, IPL innings on the other screen.
+
+**Not the core:**
+
+- Kids under 13 (ads + IAP + violence-of-failure; target **PEGI 12 / Play 12+**).
+- Hardcore Fantasy / betting users (we must look like a *game*, not a book).
+
+**Language:** UI English; flavour text Hinglish; later Hindi, Tamil, Bengali if retention proves the loop. Do not launch in 12 languages.
+
+---
+
+## 4. Game plan (design)
+
+### 4.1 Fantasy and tone
+
+You are not Virat. You are a kid who bats with a taped tennis ball under a streetlight. A coach who may or may not be real (the “Keeper of the Book”) hands you a deck. Each **run** is one career. When you get out of the tournament, get injured, or get dropped, that career ends. Meta unlocks (nets, scars, superstitions) persist.
+
+Tone: **warm, loud, slightly mythical gully** — not broadcast realism, not grimdark. Think *Hades* sincerity + *Slay the Spire* clarity + *gully cricket* slang. Commentary is a character, not licensed audio.
+
+### 4.2 You are the player
+
+At the start of a run you pick an **archetype** (not a licensed star):
+
+| Archetype | Street origin | Deck bias | Weakness |
+| --- | --- | --- | --- |
+| **Tape-ball Dasher** | Colony roof, tennis ball | Power, slog, short-boundary sixes | Fragile technique vs quality seam |
+| **The Wall** | Maidans, all-day defence | Leaves, nurdles, stamina | Slow scoring vs required rate |
+| **Wristy** | Gully spin, late hands | Placement, reverse, 3s | Bounce, extra pace |
+| **Opener Blood** | First drop, new ball | Strike rotation, ones and twos | Middle-over squeeze |
+
+No team management screen in v1. No 15-man squad. You *are* the XI’s spine; partners are **support cards / relics**, not a second career.
+
+### 4.3 What a “fight” is
+
+Map **one combat encounter = one innings (or a chase)**.
+
+- **HP / wickets:** you have a wicket bar (start 10 “lives” that represent confidence + partners + luck, *not* 10 literal dismissals — tune so a street fight is 6–10 minutes). Hitting 0 = dismissed / career node failed.
+- **Energy:** stamina per over (3 energy, StS-like). Playing a cover drive costs 1; a rampaging slog-sweep costs 2; “farm strike” is 0-cost but low reward.
+- **Block:** leave, dead bat, wear the shine. Converts to “survival” against bouncers.
+- **Damage you deal = runs.** The bowling attack has an **over-limit / target**. Street fight: 60 off 8. District final: 148 off 20. International: Test-session pressure or death-over T20.
+- **Enemy intent:** shown like StS intents — *yorker*, *short barrage*, *doosra*, *wide trap*, *crowd noise*, *DRS*. You play around the next ball, not a timing minigame.
+
+**This is not Real Cricket.** No analog stick. The satisfaction is *reading the bowler and spending the right card*, then watching a 1.5s pitch vignette (Flame) of the shot.
+
+### 4.4 Cards (your technique)
+
+Four piles, one deck:
+
+1. **Shots** — cover, pull, glance, reverse, lofted, leave, bunt for one.
+2. **Temper** — ice, red-mist, farm, sledging (debuff the bowler), “see ball hit ball.”
+3. **Body** — hamstring tape, hydration, night-vision, tape-ball callus (relics can pin these).
+4. **Street** — underarm, one-bounce six, “last-man runner,” reverse grip. High reward, high risk. These are the identity of SwitchedHit.
+
+Card rarity: street / club / state / international. International cards are **run rewards and meta unlocks**, never an IAP crate of power.
+
+**Deck size:** start ~12, grow to 18–22, then thin. Removing a “slog” is as important as adding a “late cut.”
+
+### 4.5 Relics = coaching cues
+
+Examples: cracked English willow, gully floodlight, mother’s lunch tiffin, lucky red thread, “no helmet in the colony” (power + vulnerability), DRS referral (once per boss). Relics are the *build* people screenshot.
+
+### 4.6 Map / career ladder (the roguelite)
+
+**Acts (one run):**
+
+| Act | Name | Length | Boss |
+| --- | --- | --- | --- |
+| 0 | Gully (tutorial, skippable) | 2 fights | Local fast bowler with a new ball |
+| 1 | Maidans / club | 8–10 nodes | District seamer + reverse swing |
+| 2 | State / age-group | 8–10 nodes | Mystery spinner, turning deck |
+| 3 | Franchise trial / league | 8–10 nodes | Death-over specialist |
+| 4 | International window | 6–8 nodes + finale | “The New Ball” — pace + crowd as a mechanic |
+
+Nodes (StS grammar, cricket names): **Nets** (upgrade), **Physio** (heal), **Chai stall** (shop), **Rival** (elite), **Net session with a coach** (remove/transform), **Rest day**, **Press** (gamble / curse).
+
+**Win a run:** debut century or series-defining knock at Act 4. Unlock a scar, a card, a kit colour.
+
+**Lose a run:** dropped, injured, or “sent back to the gully.” Immediate retry. Meta XP still drops.
+
+**Run time target:** first win possible in **45–70 minutes**. Individual fight **6–12 minutes**. If a fight exceeds 15 minutes, cut enemy HP, do not add timing minigames.
+
+### 4.7 Daily / live-ops (retention, not content treadmill)
+
+- **Daily net:** one short seeded fight, cosmetics + a pinch of soft currency.
+- **Season pass:** 6–8 weeks, aligned to IPL / World Cup / home series. Track is cosmetics + card *backs* + a mid-season relic skin. **No exclusive power cards on the paid track.**
+- **Challenge seeds:** “today every bowler is left-arm around.” Shareable.
+
+### 4.8 What v1 is not
+
+- No multiplayer, no PvP, no clubs, no licensed XI.
+- No analog batting, no 3D stadium broadcast (that was the scrapped product).
+- No real-money contests, no “predict the IPL,” no fantasy XI.
+- No Unity.
+
+---
+
+## 5. Inspiration (steal structures, not assets)
+
+| Game | Steal | Do not steal |
+| --- | --- | --- |
+| **Slay the Spire** | Energy, intents, map, relics, card remove | Fantasy art, 3 acts as-is |
+| **Balatro** | Short “one more run,” number-go-up dopamine, mobile-native | Poker IP, premium-only (we are F2P) |
+| **Hades** | Character, death as story, meta that feels like training | Isometric action |
+| **Inscryption** | The table is sacred; cards have weight | Horror / ARG |
+| **Marvel Snap** | Thumb-first card UX, 3-minute tension | Locations / 12-turn cube economy |
+| **Hitwicket** | Proof cricket-strategy players exist in India | Daily 8pm obligation, GM fantasy |
+| **Stick Cricket** | Casual cricket can be cartoon and still feel like cricket | Shallow meta |
+| **Monster Train / Wildfrost** | Layered combat ideas if we ever do “two innings” | Complexity at tutorial |
+
+**North star loop:** *draft a ridiculous reverse-sweep build, die to a bouncer barrage, immediately start again with one more unlocked street card.*
+
+---
+
+## 6. Art style
+
+### 6.1 Recommendation: “Gully tarot, not broadcast”
+
+Photoreal cricket on phones is **Real Cricket’s trench**. Do not fight Krafton/Nautilus on mocap. Go **stylised sports-card illustration**:
+
+- Players as **collectible cricket cards** (3/4 portrait, exaggerated hands and eyes, kits as *colour stories* not franchise marks).
+- Table / pitch vignette in **miniature diorama** (Flame): clay-red ground, sodium-vapour night, taped tennis ball in Act 1, hard ball later.
+- UI: dark green + floodlight gold + cream paper (already in the spike’s palette — keep it).
+- Cards: thick border, shot diagram watermark, Hindi/English nickname.
+
+**References (mood, not copies):** FIFA/FC Ultimate Team card frames, *Slay the Spire* readability, *Hades* portrait lighting, Indian matchbox / truck art saturation, *Cricket in the 90s* Doordarshan warmth.
+
+**Do not:** IPL logos, BCCI crest, player likenesses, photoreal faces, 4K stadiums.
+
+### 6.2 Production reality (solo / tiny team)
+
+- 1 consistent illustrator (or you + AI for *blockouts only*, human pass on every ship card).
+- ~80 cards in v1, ~40 relics, ~25 enemy bowler portraits, 5 kits.
+- Spine animations in Flame (idle / play / dismiss) as 4-frame loops, not mocap.
+- If art becomes the bottleneck, ship **silhouette + kit colour** enemies first; portraits later.
+
+### 6.3 Audio
+
+Original stumps / crowd bed. A commentator character with 40 lines, not a licensed voice. Street mix: tape-ball thud in Act 1, leather in Act 3.
+
+---
+
+## 7. Tech stack (Android-first Flutter)
+
+A deckbuilder is **mostly UI**. Google’s *I/O Flip* shipped a full card game on **Flutter widgets with no Flame**. Use Flame only where a game loop earns it.
+
+### 7.1 Recommended stack
+
+| Layer | Choice | Why |
+| --- | --- | --- |
+| App | **Flutter 3.x / Dart 3** | One codebase, Play-ready, you already think in Flutter |
+| Cards, map, shop, meta | **Flutter widgets** + `flutter_animate` | Snappy, accessible, cheap to iterate |
+| Pitch vignette (the 1.5s shot) | **Flame 1.38+** (`GameWidget` embedded) | Sprites, timeline, particles; do not build the whole app as a FlameGame |
+| State | **Riverpod** | Testable, no BuildContext soup |
+| Save | **Isar** or **Hive** local; optional Drive/Play Games later | Runs must survive process death |
+| Analytics | **Firebase Analytics + Crashlytics** | Play Vitals + funnels |
+| Ads | **google_mobile_ads** + **AdMob mediation** (add **InMobi** for India) | India rewarded eCPM is often better on InMobi than AdMob alone |
+| IAP | **in_app_purchase** → Play Billing | Required for digital goods on Play |
+| Remote config | **Firebase Remote Config** | Tune energy, ad frequency, prices without a store review |
+| Audio | **flame_audio** / `audioplayers` | SFX + bed |
+| CI | GitHub Actions → **AAB** | Play wants App Bundles |
+
+**Explicitly not:** Unity, Godot (unless Flame vignettes fail — review at end of vertical slice), native Kotlin-only, a custom engine.
+
+### 7.2 Why Flutter is the right call *for this genre*
+
+- Cards, shops, maps, battle passes are **product UI**. Flutter is stronger than Unity there.
+- Combat is turn-based. 60fps sprite punch-ins are enough; you do not need PhysX.
+- Play Console, ads, IAP, deep links are boring and well-documented in Dart.
+- Flame (Blue Fire) is actively shipped in 2026 (v1.38.x, Flutter 3.41+). Real Play titles exist (puzzle, runners, RPGs). It is not I/O Pinball-or-nothing anymore.
+
+**Where Flutter is weak:** heavy 3D, 60-player netcode. We are doing neither in v1.
+
+### 7.3 Architecture sketch
+
+```
+lib/
+  app/                 // routing, theme, bootstrap
+  meta/                // unlocks, profile, battle pass
+  run/                 // map, rng seed, relic state
+  combat/              // energy, intents, discard, resolve
+  cards/               // data + widgets
+  pitch/               // FlameGame vignette only
+  monetization/        // ads, IAP, remote flags
+  save/
+```
+
+Combat is **pure Dart**, deterministic given a seed (for daily nets and for QA). Flame only *presents* the resolve.
+
+### 7.4 Device bar
+
+Min **Android 8 / API 26**, 2 GB RAM class. Download target **< 80 MB** at install (on-demand card art if needed). 60 fps on a mid-range Samsung is a launch gate, not a stretch.
+
+---
+
+## 8. Play Store release plan
+
+### 8.1 Listing
+
+- **Name:** SwitchedHit
+- **Short:** Roguelite cricket. Build a batter. Climb from the gully.
+- **Category:** Game → **Card** (primary). Sports as tag, not primary — you will be crushed under Real Cricket in Sports charts; Card is where StS-likes live.
+- **Content rating:** 12+ (mild violence of dismissals, no gambling).
+- **Data safety:** ads + purchase + analytics declared honestly.
+
+### 8.2 Closed testing (do this on the calendar, not as an afterthought)
+
+Personal Play accounts created after **13 Nov 2023** need a **closed test: ≥ 12 testers opted in for 14 continuous days** before production access (Google reduced 20 → 12 in Dec 2024; 14 days stayed). Opt-in means they clicked the Play link and installed. Sideloads do not count. You already have testers — **keep 12 opted in the whole window**. If one drops, the clock can stall.
+
+Organization Play accounts (D-U-N-S) skip this. If you form a Pvt Ltd later, consider moving the app.
+
+### 8.3 Store page that converts in India
+
+- First screenshot: **gully night + one legendary card**, not a settings screen.
+- Hindi/English short description.
+- “No internet required for runs” if true — huge for commute play. Ads can wait for connectivity.
+- Do not put “IPL” or team names in ASO. Use *street cricket, career, cards, roguelike*.
+
+### 8.4 Launch window
+
+Ship a **vertical slice** anytime. **Store launch** should sit **2–3 weeks before IPL or a home WT20/ODI window**, with a season pass that *ends* after the final. Cricket UA is cheap when the country is already watching; it is expensive in September.
+
+### 8.5 Ratings
+
+Crash-free 99.5%+ before production. One broken IAP and India will one-star you. Staged rollout 10% → 50% → 100%.
+
+---
+
+## 9. Monetization (the actual money)
+
+### 9.1 Principle
+
+**F2P, hybrid ads + IAP, cosmetics-first, power never in a loot box.**
+
+Roguelites die in reviews when the shop sells the win. They print when the shop sells *identity* and *another run tonight*.
+
+### 9.2 What we sell
+
+| SKU | Type | Price band (INR) | Role |
+| --- | --- | --- | --- |
+| **Remove ads** | IAP, once | ₹199–349 | High-intent, protects whales from self-hate |
+| **Nets Pass** (season) | IAP, 6–8 weeks | ₹149–249 | Battle pass: kits, card backs, titles, extra daily net. **No unique power cards** |
+| **Starter kit** | IAP, once, first 72h | ₹79–129 | Cosmetics + a pinch of rerolls. 3× value vs shop, still not P2W |
+| **Reroll pack** | Soft currency also grindable | ₹49–99 | Shop rerolls / card remove tokens |
+| **Extra locker** (save slot) | IAP | ₹79 | QoL for people who juggle two runs |
+| **Kit / bat / celebration** | IAP or pass | ₹29–149 | Screenshot economy |
+| **Rewarded revive** | Ad | 1 per run, optional | Highest eCPM, must be skippable |
+| **Rewarded extra draft / shop reroll** | Ad | 2–4 per run cap | Core India revenue |
+| **Interstitial** | Ad | After a *lost* run or returning to map, never mid-over | Don’t break the sacred table |
+| **Banner** | Ad | Menu only, adaptive | Low eCPM, low harm |
+
+**Never sell:** random card packs with power, “guaranteed six” tickets, skip-the-boss, paid XP that gates archetypes.
+
+### 9.3 Ad ops (India-first)
+
+Public ranges, 2025–26 (wide, use as planning bands not contracts):
+
+- India **rewarded** eCPM: roughly **$1–4** on AdMob, **$1.20–2.50** often cited for InMobi in-India; US rewarded can be **$8–15**. Mediate both.
+- India **interstitial**: roughly **$0.50–2**.
+- India **banner**: pennies. Keep for menus.
+
+**Worked India-heavy example (not a promise):**
+
+- 8,000 DAU, 1.5 rewarded / user / day, $2 eCPM  
+  → 12,000 rewarded / day × $2 / 1000 = **$24/day ads ≈ $720/month** from ads alone.
+- Add 1.5% of DAU buying something at ₹99 net ~₹84 after Play 15%  
+  → 120 buyers × ₹84 ≈ **₹10k/day ≈ $120/day ≈ $3.6k/month IAP**.
+- **Hybrid ~$4–5k/month** at that DAU. This is a *healthy indie cricket game*, not Hitwicket.
+
+Scale table (planning, India-majority mix, hybrid ARPDAU **$0.02–0.06**):
+
+| DAU | Monthly hybrid (band) | What it feels like |
+| --- | --- | --- |
+| 1,000 | $600–1,800 | Prototype found a few hundred fans |
+| 5,000 | $3k–9k | Real side income, worth live-ops |
+| 15,000 | $9k–27k | Small studio wage |
+| 40,000 | $24k–72k | Hitwicket-adjacent *if* UA is efficient |
+| 80,000+ | $50k–150k | You hired people and a UA budget |
+
+**Diaspora lever:** if 8–10% of DAU is UK / AU / UAE / US, ad revenue can **double** without doubling users. English flavour + Play listing in those countries is not optional.
+
+### 9.4 Play fees
+
+- Most developers: **15%** on the first **$1M/year** of Play digital goods; 30% after (subscriptions often 15%). India alternative billing can cut **4%** if the user picks it — implement only after IAP works.
+- Ads: AdMob ~**32%** network share already in eCPM; you see net.
+- GST on digital IAP in India: budget **18%** on top in the price, or eat it. Do the maths in the SKU so ₹99 does not become a surprise.
+
+### 9.5 UA (where money actually dies)
+
+Do **not** buy CPI on day one. Organic: cricket YouTube shorts of *one ridiculous reverse-sweep build*, Play listing, Reddit/Discord, WhatsApp cricket groups.
+
+Paid UA only after:
+
+- D1 ≥ 35%, D7 ≥ 12% (roguelite-good),
+- rewarded ARPDAU known,
+- a CPI in India you can recite (often ₹8–25 for casual; cricket keywords spike in IPL).
+
+If CPI > 7-day revenue, stop ads, ship content.
+
+### 9.6 Honest year-one scenarios
+
+| | Installs | Peak DAU | Year-1 net (ads+IAP, after stores) | Read |
+| --- | --- | --- | --- | --- |
+| **Miss** | < 20k | < 500 | **$0–3k** | Loop didn’t click; archive |
+| **Side project** | 80–200k | 2–6k | **$8–40k** | Worth evenings + one IPL season |
+| **Hit (non-viral)** | 0.5–1.5M | 15–40k | **$60–250k** | Quit-your-job zone if costs stay tiny |
+| **Breakout** | 5M+ | 80k+ | **$400k–1.5M** | You are now a cricket-game company; still not Real Cricket |
+
+**Base plan on “side project.”** Hire and UA only after two months of “side project” numbers during a cricket window.
+
+### 9.7 Why ads + IAP (not premium)
+
+Balatro could charge $10 because it was already a phenomenon on PC. We are unknown, India-first, and competing with *free* cricket games. Premium $3–5 would cap the top of the funnel. F2P with a fair pass + ad remove is the only model that can ride IPL traffic *and* still pay the lights.
+
+---
+
+## 10. Build plan (what to make, in order)
+
+### 10.1 Vertical slice (4–6 weeks) — kill or continue
+
+Must be fun on a mid-range Android without accounts:
+
+- 1 archetype (Dasher)
+- 18 cards, 8 relics, 4 enemies, 1 boss
+- 1 act map (Gully → club final)
+- Flame vignette for 4 shot types
+- Local save
+- Fake shop (no real money yet)
+
+**Kill criterion:** if you do not start a second run after a death without being asked, stop. Do not add ads to a boring slice.
+
+### 10.2 Alpha (weeks 7–14)
+
+- 3 archetypes, 60 cards, 3 acts
+- Daily net
+- Analytics events (start_run, card_play, death, revive_ad)
+- Closed testing track, 12 testers, 14 days
+
+### 10.3 Beta (weeks 15–22)
+
+- Act 4 stub
+- Real AdMob (test devices) + 3 IAP SKUs (ad remove, starter, pass)
+- Hindi flavour pass
+- Store listing, shots, 30s trailer (one run, no licensed footage)
+
+### 10.4 Production
+
+- Staged rollout before a cricket window
+- Season 0 pass (free track fat, paid track cosmetic)
+
+### 10.5 Team (v1)
+
+Solo + specialists:
+
+- You: design, Dart, combat
+- 1 illustrator (cards + portraits), contract
+- 1 audio (optional Fiverr-grade, then replace)
+- No UA agency until §9.5 gates
+
+---
+
+## 11. Legal, policy, and “don’t get banned”
+
+- **No BCCI, ICC, IPL, franchise names, crests, anthems, player faces.** Street kits. Made-up club names (“Cotton Green Colts,” “Marine Drive XI”).
+- **Not gambling.** Cards are shots, not bets. No real-money prizes. India’s **Promotion and Regulation of Online Gaming Act 2025** wiped RMG / fantasy ad money off IPL; looking like Dream11 is how you die twice (law + ads). Copy must say *single-player career game*.
+- **Ads:** UMP / families if you ever drop below 13 — don’t. Rewarded must be optional. GDPR/DPDP: consent SDK.
+- **IAP:** restore purchases, clear prices, no dark patterns (Google Play Payments policy).
+- **Crashes in closed test** are a gift. Production one-stars are not.
+
+---
+
+## 12. Risks
+
+| Risk | Size | Mitigation |
+| --- | --- | --- |
+| Loop isn’t fun | Fatal | Vertical slice kill-gate |
+| “It’s just StS with bats” reviews | High | Street cards + commentator + career fantasy must be loud in the first 3 minutes |
+| India eCPM too low to matter | High | Diaspora listing + IAP cosmetics + IPL live-ops; don’t build a UA machine on $0.02 ARPDAU |
+| Art inconsistency | High | One illustrator, card template locked week 1 |
+| Pay-to-win temptation | High | Written rule: no power in IAP crates. If we break it, we become every other cricket F2P |
+| Flutter vignette looks cheap vs Real Cricket | Med | Don’t compete on realism; compete on *cards* |
+| Play closed-test clock | Med | 12 testers locked before we call it “done” |
+| Cricket calendar miss | Med | Ship slice anytime; *launch* on a window |
+
+---
+
+## 13. Recommendation
+
+**Build the vertical slice on Flutter (widgets + a small Flame pitch). Do not hire, do not buy cricket licenses, do not start ads, do not clone Hitwicket.**
+
+If after two deaths you still queue another gully fight, continue to Alpha and point the Play closed test at it.
+
+If not, this idea is also dead — and that is cheaper than a year of a mid cricket manager.
+
+**Monetization can work** as a hybrid India F2P if (and only if) the run is sticky. The upside is a cricket-season live-ops game with diaspora eCPM on top. The realistic year-one win is **a few thousand dollars a month and a product you still want to open**. Anything above that is a hit, not a plan.
+
+---
+
+## 14. Key decisions
+
+1. **Scrap the replay / Unity / Next.js 3D broadcast product.** Wrong genre, wrong team size, legal pain.
+2. **Player-based roguelite deckbuilder**, not a franchise manager and not an arcade sim.
+3. **Flutter + widget UI + Flame vignette**, not Unity.
+4. **F2P ads + IAP**, cosmetics and QoL, no power loot boxes.
+5. **Android / Play first**, 12+ rating, no licensed marks.
+6. **Launch on a cricket window**, not a random Tuesday.
+7. **Kill at the slice**, not after a year of systems.
+
+---
+
+## 15. Open questions (need you)
+
+1. **Archetype you personally want to play first?** Dasher / Wall / Wristy / Opener.
+2. **Combat length:** 6-minute street fights vs 12-minute “proper T20 overs.” I recommend 6–8 for mobile.
+3. **How autobiographical is the gully?** Pune-specific flavour vs generic Indian street.
+4. **Premium $3 experiment** as a second APK later, or F2P-only forever?
+5. **Company:** keep personal Play account (12 testers/app) vs Pvt Ltd org account.
+
+---
+
+## 16. Sources (planning, not audited financials)
+
+- Flame engine / pub.dev 1.38.2 (Aug 2026); Flame GitHub (~10.8k stars)
+- DEV: “Flutter Game Development in 2026”; Google I/O Flip as widget-only card game
+- AppBrain Play rankings: Top Grossing Sports Games in India (15 Sep 2026)
+- Appfigures: Real Cricket Play, Aug 2026 (~870k downloads, ~$75k net)
+- Sensor Tower public publisher page: Hitwicket (~200k downloads, ~$90k last month)
+- Sports Business Journal: Real Cricket × WCA likeness, 350M+ downloads (2024)
+- PocketGamer / Eurogamer / AppMagic: Balatro mobile revenue path ($4.4M in two months; later ~$21.3M / 3.1M downloads)
+- PocketGamer: Dice of Kalma 1M+ downloads (Sep 2026)
+- Lightbox / India gaming market notes: 560M+ smartphones, cheap data, UPI, cricket calendar
+- Glance × InMobi × AppsFlyer cricket-fan report (2025 season)
+- cas.ai AdMob vs InMobi eCPM (India vs Tier-1, 2026)
+- Segwise / SuccessMate AdMob game monetization guides (rewarded vs interstitial; India bands)
+- Google Play Console Help: closed testing 12 testers / 14 days; India alternative billing (−4%)
+- Testogethr / TestFi / Testers Community: 12-tester rule after Nov 2023 personal accounts; 20→12 in Dec 2024
+- Google India billing blog; NCLAT / CCI Play billing context
+- BW Marketing World: RMG ban impact on IPL ad revenue (2025 Act)
+
+Figures are **planning ranges**. They are not a guarantee of SwitchedHit revenue.
+
+---
+
+*Prepared for internal use. The replay plan is retired. This is the game.*
