@@ -159,79 +159,93 @@ Raju and The Name can be drafted by a *rival* franchise so the poster at level 7
 
 ### 4.3 What a “fight” is
 
-Map **one combat encounter = one innings (or a chase)**.
+**Not ball-by-ball.** Not 20 overs. A stage is a **6-turn action innings**. You and the AI each play into **phases**; a score formula evaluates each turn. Flame still plays a 1.5s *highlight* of the action, not every delivery.
 
-- **HP / wickets:** you have a wicket bar (confidence + partners + luck, *not* 10 literal dismissals — tune so a street fight is **5–7 minutes**). Hitting 0 = dismissed / **this stage failed**. Retry the node. Campaign stays.
-- **Energy:** stamina per over (3 energy, StS-like). Playing a cover drive costs 1; a rampaging slog-sweep costs 2; “farm strike” is 0-cost but low reward.
-- **Block:** leave, dead bat, wear the shine. Converts to “survival” against bouncers.
-- **Damage you deal = runs.** The bowling attack has an **over-limit / target**. Street fight: 60 off 8. District final: 148 off 20. International: Test-session pressure or death-over T20.
-- **Enemy intent:** shown like StS intents — *yorker*, *short barrage*, *doosra*, *wide trap*, *crowd noise*, *DRS*. You play around the next ball, not a timing minigame.
+Player has **persistent stats** (3 numbers, not a spreadsheet): **Power, Craft, Nerve**. Cards modify them. Stats are the “hero level” from Score! Hero; cards are the decisions.
 
-**This is not Real Cricket.** No analog stick. The satisfaction is *reading the bowler and spending the right card*, then watching a 1.5s pitch vignette (Flame) of the shot.
+#### 4.3.1 Three card layers (simpler than Card Cricket Quest)
 
-#### 4.3.1 How a fight actually plays (the card loop)
+Card Cricket Quest deals **12 vs 12** cards an over and asks you to **match pairs**. We keep the *feeling* (short, scored, joker-y) and throw out the matching puzzle.
 
-**Unit of time: one ball = one turn.** Score! Hero already taught us we never play a full 20 overs — we play the *dramatic 6–12 balls*. At ~30–40s a turn that is 5–7 minutes. Do not invent a second clock.
+| Layer | When | Count | Job |
+| --- | --- | --- | --- |
+| **1. Match buffs** | Set **once** at the start. Locked for the fight. | 1–2 | Full-innings theme. “Night game”, “Short straight”, “New ball”, “Home crowd”. Marvel Snap *locations*, but you *choose* them (or the stage assigns one and you pick the other). |
+| **2. Action cards** | **6 turns.** Draw from the Shot or Ball pile (stage decides). Play **1 action** per turn. | Hand 3, draw 1/turn | The thing you *do*: slog, farm, yorker, leave, bouncer. |
+| **3. Impact cards** | **Attach to the action** you just played (Balatro jokers, but snapped onto this turn). | Hand 2, optional | Multipliers / twists: “this is a six if Power ≥ X”, “double in death overs”, “if they played short → 4”. Exhaust after use, or return if we need more juice later. |
 
-**Batting fight (you vs a named bowler)**
+**Complexity cap:** if playtests need a rules lawyer, cut Impact-from-hand and make Impacts a **row of 3** set at the start (pure Balatro). Do not add a fourth layer.
 
-```
-Start: shuffle Shot loadout → draw pile. Chase bar (e.g. 18 needed). Wicket bar (e.g. 3 lives).
-Each ball:
-  1. Bowler shows INTENT (the next delivery): yorker / short / doosra / wide trap.
-  2. You draw up to 5. Stamina = 3.
-  3. Play 1 shot (or leave/defend). Optional 0-cost temper.
-  4. Resolve immediately. Flame vignette 1.5s.
-     - Matchup good  → runs (1/2/4/6) tick the chase bar. Maybe a status (momentum).
-     - Matchup bad   → edge / miss / wicket damage.
-     - Leave vs full toss → wasted ball, required-rate ticks.
-  5. Unspent stamina dumps. Hand discards. Bowler acts (intent resolves if you didn't).
-Win: chase bar full. Lose: wicket bar empty OR balls run out with runs still needed.
-```
+#### 4.3.2 Six turns = cricket phases (the map)
 
-**Bowling fight (you vs a named batter)** — same engine, flipped.
+`2 + 2 + 2`. “End overs ×2” is two death-over turns.
 
-- Intent is *their* plan: slog / farm / leave / step out.
-- You play a **ball** card. Their innings bar is HP. Wickets you take are damage. Runs they score are a fail clock (economy / remaining target).
-
-**Why intents (from Slay the Spire):** Megacrit’s early prototype hid enemy actions; combat was a coin flip. Intents made “play the right card” a *read*, not a guess. Cricket already has this language: you *see* length. Show the length.
-
-**Screen (thumb-first, Marvel Snap density)**
-
-```
-[Intent: YORKER  8 if you miss]     [Ball 4/8]
-[Chase 12/18]  [Wickets ●●○]
-        [Flame pitch, 1.5s]
-[Hand: 5 cards]     [Stamina ●●●]
-[End over / End ball]
-```
-
-**Card costs**
-
-| Cost | Feel | Example |
+| Turns | Phase | Theme (scoring bias) |
 | --- | --- | --- |
-| 0 | Farm, leave, nudge | Single to third, dead bat |
-| 1 | Standard shot/ball | Cover, outswinger |
-| 2 | Commitment | Slog-sweep, yorker, bouncer barrage |
-| 3 | All-in, once a fight | Rampaging six, unplayable inswing |
+| 1–2 | **Powerplay** | Boundaries pay. Wickets hurt more. Field is up. |
+| 3–4 | **Middle** | Singles, strike rotation, economy. Slog is greed. |
+| 5–6 | **Death** | Sixes and yorkers. High variance. Last-over math. |
 
-**Statuses (cricket words, StS math)**
+The **stage** can retag a phase (wet pitch = middle becomes “can’t middle it”; night gully = powerplay is streetlight-out). That is how we set **match theme** without a ball-by-ball engine.
 
-| Status | Does |
-| --- | --- |
-| **Shine** | New-ball swing: leave/defend stronger, slog weaker |
-| **Turn** | Spin: reverse and late-cut scale, slog holes out |
-| **Bounce** | Short: pull/hook pay, front-foot drive is a wicket |
-| **Required rate** | Invisible timer: if you farm too long, chase explodes |
-| **Crowd** | Temper cards cost −1 or +1 depending on home/away |
-| **Sledge** | Next shot costs +1 unless you play angry |
-| **Momentum** | After a four/six, 0-cost farm is better |
+#### 4.3.3 How a turn resolves
 
-**Matchup table (tiny, readable)** — not a 50×50 spreadsheet. Three lengths (full / good / short) × three lines (off / middle / leg). Cards tag a length. Intent tags a length. Same = runs. Opposite = danger. Street cards ignore the table and roll a coin with a funny vignette (the reverse-sweep).
+```
+Start of fight:
+  You set 1–2 Match buffs. AI has 1 (from the level script).
+  Shuffle Action deck (12–18). Draw 3. Draw 2 Impacts.
 
-**After the fight:** 1 of 3 cards (story). Coins. Stars. Next stage.
+Each of 6 turns:
+  1. Phase banner (Powerplay / Middle / Death).
+  2. AI commits an Action face-down (scripted weights, not cheating RNG).
+  3. You play 1 Action. Optionally attach 1 Impact.
+  4. Reveal. Score formula (below). Short vignette.
+  5. Draw 1 Action. Draw 1 Impact if you spent one.
 
-#### 4.3.2 References — similar loops online
+After turn 6: sum your score vs target (bat) or vs their score (bowl).
+Stars = extras on phases (“Death six”, “Powerplay no wicket”).
+```
+
+**Score formula (keep it on one line, Balatro-simple):**
+
+```
+TurnScore = (Action.value + Stat.bonus) × Phase.mult × Buff.mult × Impact.mult
+```
+
+Then a **matchup tag**: your Action vs AI Action.
+
+- Same plan (slog vs long-hop) → extra runs
+- Counter (slog vs yorker) → wicket threat / their runs
+- Neutral → base value
+
+**Bat stage:** TurnScore adds **runs**. Wicket threat from counters fills a **3-box wicket bar**. 3 boxes = out, stage fail.  
+**Bowl stage:** TurnScore is **pressure**. Enough pressure in a turn = wicket. Their residual is **runs conceded**. Primary might be “2 wickets” or “under 18 conceded.”
+
+No 50×50 length table. Three tags on each Action: **attack / farm / survive** (bat) or **attack / contain / buy** (bowl). 3×3 is enough.
+
+**Example (Level 2, compound wall, bat, Powerplay turn 1)**
+
+- Buff: Short straight (+boundary).
+- You: Action *Slog* + Impact *Tape-ball six*.
+- AI: Action *Float* (gully mate).
+- Phase: Powerplay ×1.5 boundaries.
+- Result: 6. Chase 6/20. Vignette: ball over the wall. Crowd (two uncles) shout.
+
+**Example (Level 110, WC1 semi, Death turn 6)**
+
+- Buff: Crowd curse (sledge).
+- You: Action *Slog* with no Impact left.
+- AI: Action *Yorker*.
+- Counter + Death variance → wicket. You hole out. Story beat fires.
+
+#### 4.3.4 What this is not
+
+- Not ball-by-ball Spire.
+- Not CCQ’s 12-vs-12 matching (too fiddly on a bus).
+- Not a licensed XI of player-cards (Pitch5T trap).
+
+**One-liner:** *Card Cricket Quest is cricket-Balatro matching. We are cricket-Snap: 6 turns, phases as locations, impacts as jokers, stats as the hero.*
+
+#### 4.3.5 References — similar loops online
 
 | Game | Loop | Steal | Do not copy |
 | --- | --- | --- | --- |
@@ -241,22 +255,24 @@ Win: chase bar full. Lose: wicket bar empty OR balls run out with runs still nee
 | **[Watcher stance, StS](https://slay-the-spire.fandom.com/wiki/Watcher)** | Calm / Wrath | Compact vs aggressive as a stance relic, not a second game | Full stance kit in v1 |
 | **[Armchair Cricket](https://boardgamegeek.com/boardgame/11257/armchair-cricket)** | Bowler leads a card, batter answers (trick-take) | Intent vs shot is this, with numbers | 60-min Tests, two physical decks |
 | **[Card Cricket: 1v1](https://play.google.com/store/apps/details?id=com.cardcricket)** (Play, tiny) | 18 cards, pick 6 per over, 3 overs each | Over-as-a-packet if we ever batch balls | Random event table, PvP |
-| **[Card Cricket Quest](https://store.steampowered.com/app/4155160/Card_Cricket_Quest/)** (Steam, 2027, NZ indie) | **Closest cousin.** Each over: 12 batter cards vs 12 bowler cards. **Match pairs to score that many runs.** Avoid HOWZAT. Trinkets. T20 roguelite. One batter, not a whole XI. | Trinkets = our relics. Solo batter. Short T20 challenges. Character name. | **Matching, not intents.** Batting-only. Licensed nations. Roguelite wipe. PC-first, 2027. **We are not this game.** We read the next ball and spend a shot. They match numbers. |
+| **[Card Cricket Quest](https://store.steampowered.com/app/4155160/Card_Cricket_Quest/)** (Steam, 2027) | 12 vs 12 cards an over, **match pairs** to score, HOWZAT, trinkets | Short T20, solo batter, character name, trinkets | **12-vs-12 matching.** Too busy for a bus. We score 6 actions, not 24 cards. |
+| **[Balatro](https://store.steampowered.com/app/2379780/Balatro/)** | Play a hand, Jokers multiply Chips × Mult | Impact cards = jokers. Simple one-line score | Poker, endless antes, no opponent “play” |
+| **[Marvel Snap](https://www.marvelsnap.com/)** | **6 turns**, locations | Turn count, phases as locations | 3 lanes, PvP snap |
 
 **Pitch5T** (Play, early access, <1k downloads) is collectible *player* cards, fantasy-squad shaped. Avoid that — we are shots, not a licensed XI.
 
 **Dicey Dungeons / Slice & Dice** — simpler “spend dice this turn.” Only steal if the card loop feels too wordy in playtests.
 
-**Differentiation one-liner:** *Card Cricket Quest is cricket-Balatro (match numbers). SwitchedHit is cricket-Spire (read the ball, play the shot), inside a Score! Hero career.*
+**Differentiation one-liner:** *CCQ matches 12 vs 12. We play 6 actions with jokers, scored by powerplay / middle / death.*
 
 ### 4.4 Cards (your technique)
 
-Four piles, one deck:
+Three layers (see §4.3.1), two action piles:
 
-1. **Shots** — cover, pull, glance, reverse, lofted, leave, bunt for one.
-2. **Balls** — inswinger, off-cutter, slow bouncer, yorker, doosra, tape-ball dip. **Separate pile.** Bat nodes draw Shots; bowl nodes draw Balls.
-3. **Temper** — ice, red-mist, farm, sledging, “see ball hit ball.”
-4. **Street** — underarm, one-bounce six, “last-man runner,” reverse grip. High reward, high risk. Identity of SwitchedHit.
+1. **Match buffs** — 1–2, set at start. Night, short boundary, new ball, crowd.
+2. **Action (Shots)** — cover, pull, glance, reverse, lofted, leave, farm.
+3. **Action (Balls)** — inswinger, cutter, bouncer, yorker, doosra, tape-ball dip. Stage picks Shot or Ball pile.
+4. **Impact (jokers)** — attach to the action this turn. “Six if Power”, “double in death”, “yorker eats slog.” Street jokes live here (reverse-sweep impact).
 
 Card rarity: street / club / state / international. International cards are **campaign rewards** (choose 1 of 3), never an IAP crate of power.
 
@@ -867,7 +883,7 @@ If not, this idea is also dead — and that is cheaper than a year of a mid cric
 19. **Drama spine:** stall at state senior; special innings; camp snub; injury cap; WC1 choke at **110**; **100-level wilderness**; last World Cup **191–220** with match + milestone.
 20. **Identity:** player **name** + **state / district / area**. India-first. International careers later.
 21. **T20:** pick a **generic franchise** at 70; optional switch at 121. No IPL marks.
-22. **Combat loop:** **one ball = one turn.** 6–12 balls per stage. StS intents + energy. Not Card Cricket Quest matching.
+22. **Combat loop:** **not ball-to-ball.** Player stats + 3 card layers (match buff / action / impact-as-joker). **6 turns:** powerplay ×2, middle ×2, death ×2. AI plays too; a one-line formula scores the turn.
 
 ## 16. Open questions (need you)
 
