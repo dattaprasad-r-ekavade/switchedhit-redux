@@ -169,6 +169,86 @@ Map **one combat encounter = one innings (or a chase)**.
 
 **This is not Real Cricket.** No analog stick. The satisfaction is *reading the bowler and spending the right card*, then watching a 1.5s pitch vignette (Flame) of the shot.
 
+#### 4.3.1 How a fight actually plays (the card loop)
+
+**Unit of time: one ball = one turn.** Score! Hero already taught us we never play a full 20 overs — we play the *dramatic 6–12 balls*. At ~30–40s a turn that is 5–7 minutes. Do not invent a second clock.
+
+**Batting fight (you vs a named bowler)**
+
+```
+Start: shuffle Shot loadout → draw pile. Chase bar (e.g. 18 needed). Wicket bar (e.g. 3 lives).
+Each ball:
+  1. Bowler shows INTENT (the next delivery): yorker / short / doosra / wide trap.
+  2. You draw up to 5. Stamina = 3.
+  3. Play 1 shot (or leave/defend). Optional 0-cost temper.
+  4. Resolve immediately. Flame vignette 1.5s.
+     - Matchup good  → runs (1/2/4/6) tick the chase bar. Maybe a status (momentum).
+     - Matchup bad   → edge / miss / wicket damage.
+     - Leave vs full toss → wasted ball, required-rate ticks.
+  5. Unspent stamina dumps. Hand discards. Bowler acts (intent resolves if you didn't).
+Win: chase bar full. Lose: wicket bar empty OR balls run out with runs still needed.
+```
+
+**Bowling fight (you vs a named batter)** — same engine, flipped.
+
+- Intent is *their* plan: slog / farm / leave / step out.
+- You play a **ball** card. Their innings bar is HP. Wickets you take are damage. Runs they score are a fail clock (economy / remaining target).
+
+**Why intents (from Slay the Spire):** Megacrit’s early prototype hid enemy actions; combat was a coin flip. Intents made “play the right card” a *read*, not a guess. Cricket already has this language: you *see* length. Show the length.
+
+**Screen (thumb-first, Marvel Snap density)**
+
+```
+[Intent: YORKER  8 if you miss]     [Ball 4/8]
+[Chase 12/18]  [Wickets ●●○]
+        [Flame pitch, 1.5s]
+[Hand: 5 cards]     [Stamina ●●●]
+[End over / End ball]
+```
+
+**Card costs**
+
+| Cost | Feel | Example |
+| --- | --- | --- |
+| 0 | Farm, leave, nudge | Single to third, dead bat |
+| 1 | Standard shot/ball | Cover, outswinger |
+| 2 | Commitment | Slog-sweep, yorker, bouncer barrage |
+| 3 | All-in, once a fight | Rampaging six, unplayable inswing |
+
+**Statuses (cricket words, StS math)**
+
+| Status | Does |
+| --- | --- |
+| **Shine** | New-ball swing: leave/defend stronger, slog weaker |
+| **Turn** | Spin: reverse and late-cut scale, slog holes out |
+| **Bounce** | Short: pull/hook pay, front-foot drive is a wicket |
+| **Required rate** | Invisible timer: if you farm too long, chase explodes |
+| **Crowd** | Temper cards cost −1 or +1 depending on home/away |
+| **Sledge** | Next shot costs +1 unless you play angry |
+| **Momentum** | After a four/six, 0-cost farm is better |
+
+**Matchup table (tiny, readable)** — not a 50×50 spreadsheet. Three lengths (full / good / short) × three lines (off / middle / leg). Cards tag a length. Intent tags a length. Same = runs. Opposite = danger. Street cards ignore the table and roll a coin with a funny vignette (the reverse-sweep).
+
+**After the fight:** 1 of 3 cards (story). Coins. Stars. Next stage.
+
+#### 4.3.2 References — similar loops online
+
+| Game | Loop | Steal | Do not copy |
+| --- | --- | --- | --- |
+| **[Slay the Spire](https://store.steampowered.com/app/646570/Slay_the_Spire/)** | Draw 5, 3 energy, play, enemy intent resolves | Intents, energy, block=leave, exhaust=one-use street cards | Fantasy art, 3-act wipe |
+| **[Marvel Snap](https://www.marvelsnap.com/)** | 6 short turns, energy ramps, locations | Density, thumb UI, pitch = a “location” modifier (wet, night, short boundary) | Simultaneous PvP, 3 lanes |
+| **[Inscryption](https://store.steampowered.com/app/1092790/Inscryption/)** | Play onto a table, sacrifice | The pitch *is* the table. Cards have weight | Horror, ARG |
+| **[Watcher stance, StS](https://slay-the-spire.fandom.com/wiki/Watcher)** | Calm / Wrath | Compact vs aggressive as a stance relic, not a second game | Full stance kit in v1 |
+| **[Armchair Cricket](https://boardgamegeek.com/boardgame/11257/armchair-cricket)** | Bowler leads a card, batter answers (trick-take) | Intent vs shot is this, with numbers | 60-min Tests, two physical decks |
+| **[Card Cricket: 1v1](https://play.google.com/store/apps/details?id=com.cardcricket)** (Play, tiny) | 18 cards, pick 6 per over, 3 overs each | Over-as-a-packet if we ever batch balls | Random event table, PvP |
+| **[Card Cricket Quest](https://store.steampowered.com/app/4155160/Card_Cricket_Quest/)** (Steam, 2027, NZ indie) | **Closest cousin.** Each over: 12 batter cards vs 12 bowler cards. **Match pairs to score that many runs.** Avoid HOWZAT. Trinkets. T20 roguelite. One batter, not a whole XI. | Trinkets = our relics. Solo batter. Short T20 challenges. Character name. | **Matching, not intents.** Batting-only. Licensed nations. Roguelite wipe. PC-first, 2027. **We are not this game.** We read the next ball and spend a shot. They match numbers. |
+
+**Pitch5T** (Play, early access, <1k downloads) is collectible *player* cards, fantasy-squad shaped. Avoid that — we are shots, not a licensed XI.
+
+**Dicey Dungeons / Slice & Dice** — simpler “spend dice this turn.” Only steal if the card loop feels too wordy in playtests.
+
+**Differentiation one-liner:** *Card Cricket Quest is cricket-Balatro (match numbers). SwitchedHit is cricket-Spire (read the ball, play the shot), inside a Score! Hero career.*
+
 ### 4.4 Cards (your technique)
 
 Four piles, one deck:
@@ -385,6 +465,8 @@ The list is a **cricket life**, not a harder HP bar. Snubs, recalls, one last da
 | Game | Steal | Do not steal |
 | --- | --- | --- |
 | **Slay the Spire** | Energy, intents, map, relics, card remove | Fantasy art, 3 acts as-is |
+| **Score! Hero** | Numbered career, stars, snubs, last dance | Analog flicks, 800 identical goals |
+| **Card Cricket Quest** | Solo batter, trinkets, short T20 | Pair-matching, licensed nations, run wipe |
 | **Balatro** | Short “one more run,” number-go-up dopamine, mobile-native | Poker IP, premium-only (we are F2P) |
 | **Shadow Fight 2** | Act maps, retry-the-fight, persistent gear, India-digestible F2P | Weapon gacha, energy that bricks the game |
 | **Inscryption** | The table is sacred; cards have weight | Horror / ARG |
@@ -785,6 +867,7 @@ If not, this idea is also dead — and that is cheaper than a year of a mid cric
 19. **Drama spine:** stall at state senior; special innings; camp snub; injury cap; WC1 choke at **110**; **100-level wilderness**; last World Cup **191–220** with match + milestone.
 20. **Identity:** player **name** + **state / district / area**. India-first. International careers later.
 21. **T20:** pick a **generic franchise** at 70; optional switch at 121. No IPL marks.
+22. **Combat loop:** **one ball = one turn.** 6–12 balls per stage. StS intents + energy. Not Card Cricket Quest matching.
 
 ## 16. Open questions (need you)
 
