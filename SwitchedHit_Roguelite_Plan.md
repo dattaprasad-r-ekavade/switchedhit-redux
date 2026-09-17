@@ -174,7 +174,7 @@ Fight length still **5–7 minutes**. Bat or bowl is flagged on the level card.
 | Numbered career 1…N with a cup every 10 | 800+ levels of the same “score a goal” |
 | Primary + 2 star missions | Analog flick gameplay |
 | Stars as chapter keys | Hard hearts that brick the story |
-| Story beats: trials, bench, rival, injury, first cap, World Cup | Licensed clubs |
+| Story beats: trials, bench, snub, fans, injury call-up, last dance | Licensed clubs |
 | Comeback / last-over / “prove the scout” scenarios | Rewind-for-gems as the core loop |
 
 **Star missions (catalogue — pick two per level):** chase without a six; maiden over; take the set batter; 12 off 6; no extras; play the meme reverse and *survive*; partnership 30 with a bunny; DRS review correct; death-over yorker; night-game no misfield.
@@ -191,10 +191,10 @@ Fight length still **5–7 minutes**. Bat or bowl is flagged on the level card.
 | 51–59 | **State U-19** | **60 State senior contract** |
 | 61–69 | **State senior** | **70 Domestic T20 draft** |
 | 71–79 | **Domestic T20 / franchise** | **80 National camp** |
-| 81–89 | **National camp / A side** | **90 First international cap** |
-| 91–99 | **Internationals** | **100 World Cup qualification** |
-| 101–109 | **World Cup** (group + knockouts) | **110 World Cup semi-final** |
-| 111–119 | **World Cup knockout run** | **120 World Cup final** |
+| 81–89 | **Camp snub / A side** | **90 Injury-replacement cap** |
+| 91–99 | **Internationals** | **100 WC1 qualification** |
+| 101–109 | **World Cup 1** | **110 Semi-final choke; dropped** |
+| 111–119 | **Wilderness → last WC** | **120 Final + personal milestone** |
 
 No BCCI / IPL / ICC names on the map. “Domestic T20” is a made-up league. “World Cup” is generic.
 
@@ -228,35 +228,77 @@ No BCCI / IPL / ICC names on the map. “Domestic T20” is a made-up league. �
 | 19 | Night academy game | Bat | Slow ball grips. Wristy shines. |
 | **20** | **Town selection** | Bowl | 4 overs, 3 wickets, economy under 8. Fail = retry, not “career over.” |
 
-#### Levels 21–120 — rest of the career (named gates, authored scenarios)
+#### Career spine — Score! Hero drama (this is the product)
 
-Each chapter follows the same 9 + 1 pattern: **7 league/academy fights, 1 rival or injury beat, 1 nets/shop, 1 gate.**
+The list is a **cricket life**, not a harder HP bar. Snubs, recalls, one last dance. Between levels: one SMS, one headline, one line from Coach Kulkarni. No cutscene budget.
 
-| # | Scenario type (rotate these, don’t repeat the same fight) |
-| --- | --- |
-| 21–29 Town | Sunday grounds, matting pitch, local umpire (no DRS). **30 District trials** — bat a 30-ball knock vs district new-ball. |
-| 31–39 District | Turf, first helmet optional relic. Big spinning grounds. **40 Division cup final** — chase 48 off 5. |
-| 41–49 Zone | Travel, tired body (start with −1 energy). **50 State U-19 call-up** — bowl at a decorated junior batter. |
-| 51–59 State U-19 | Camps, shared rooms, sledging from seniors. **60 State senior contract** — last-over 16 off 6. |
-| 61–69 State senior | Red-ball *flavour* (more leaves) but still T20-shaped clock. Injury level: 4 energy max. **70 Domestic T20 draft** — 2-over audition, both modes. |
-| 71–79 Domestic T20 | Floodlights, death overs, crowd curse. **80 National camp** — fitness + 12-ball death bowl. |
-| 81–89 National camp | Net bowlers who are faster than the game so far. **90 First cap** — bat 8 balls, don’t get a duck (primary is “see off the new ball”). |
-| 91–99 Internationals | Neutral venues, DRS on. **100 WC qualification** — must win; star-3 = player-of-the-match relic. |
-| 101–109 World Cup | Group: defend 28 off 4; Super-8 chase; knock-out last-over. **110 Semi-final** — named overseas quick, bouncer barrage. |
-| 111–119 Knockout run | Recover from 111 “dropped catch” (start −1 wicket). Rival nation (no real flags: “The Old Enemy”). **120 World Cup final** — you choose bat or bowl after the toss card. Longest fight still capped at 7 minutes. |
+**Seven movements**
 
-**Recurring cast (Score Hero’s veteran rival, cricket-flavoured):**
+1. **The kid (1–20).** Gully → academy → town. Hungry. Raju bats prettier.
+2. **The rise (21–60).** District, zone, U-19. **State senior contract at 60.** Feels like arrival. It is not.
+3. **The stall (61–69).** You have the contract. You do not play. 12th man. Drinks. The Veteran keeps the XI. Selectors want “a special innings.”
+4. **The audition (70).** One night knock as impact sub. That innings is why the draft even looks at you.
+5. **The almost (71–80).** You fire. **Dropped for a bigger name.** Fans demand you. Recall. National camp.
+6. **The snub (81–89).** **Best player in camp. Not in the 15.** Nation plays badly. **90 is an injury-replacement cap** — see off the new ball, don’t duck.
+7. **Two World Cups (91–120).** First cup: go deep, **choke a semi**, scapegoat, dropped (Raju stays). Wilderness. Recalled for **one last World Cup**. **120 = win the final AND a personal milestone.**
 
-- **Raju** — gully rival, returns at 7, 17, 37, 77.
-- **Coach Kulkarni** — academy, SMS between levels.
-- **The Veteran** — state senior who won’t give you strike (level 64).
-- **The New Ball** — Act-final quick, portrait reused with better kit.
+#### Levels 21–120 — authored beats
 
-**Chapter unlock:** 20 stars from the last 10 levels. You can brute-force on 1-stars and scrape through; 3-starring is the grind/ads loop.
+| # | Beat | Mode | What happens |
+| --- | --- | --- | --- |
+| 21–29 | Town grind | mix | Sunday grounds, matting, bent umpires. |
+| **30** | **District trials** | Bat | 30-ball knock vs new ball. First “this is a job.” |
+| 31–36 | District rise | mix | Turf. Helmet optional relic. |
+| 37 | Raju, now sponsored | Bat | Same kid, better kit. |
+| 38–39 | Nets / bus | — | −1 energy. |
+| **40** | **Division cup final** | Bat | Chase 48 off 5. *Local kid.* |
+| 41–45 | Zone | mix | Homesick. |
+| 46 | **12th man / concussion sub** | Bat | 4-over cameo. Score Hero bench beat. |
+| 47–49 | Earn the call | mix | |
+| **50** | **State U-19 call-up** | Bowl | Decorated junior. You barely belong. |
+| 51–57 | U-19 star | mix | Shared rooms. Seniors sledge. |
+| 58 | **Snub preview** | Bat | Left out for a “safer” batter. Impact: 12 off 8 or drinks. |
+| 59 | Nets | — | Shop. |
+| **60** | **State senior contract** | Bat | 16 off 6. Paper: *Contracted.* Stall starts tomorrow. |
+| 61–63 | **You don’t play** | mix | Training. The Veteran’s name on the sheet. |
+| 64 | The Veteran | Bat | He will not rotate. Star-3 = steal strike. |
+| 65–67 | Death bowling, no batting | Bowl | They use you as a bowler because they won’t bat you. |
+| 68 | **“Give us a special innings”** | Bat | Selectors in the stand. See off the new ball. |
+| 69 | **The knock** | Bat | Night. 24 off 8. The only reason 70 exists. |
+| **70** | **Domestic T20 draft audition** | Both | 2-over bowl + 10-ball bat. *Considered*, not chosen. |
+| 71–75 | Domestic fire | mix | Floodlights, death overs. You look like the real thing. |
+| 76 | **Dropped** | — | Text: franchise picked a “name.” Raju on the poster. |
+| 77–79 | Fan demand / exile | mix | Headline: *Bring him back.* 78 packed home ground. |
+| **80** | **Recall → national camp** | Bowl | 12-ball death. In the room. Not in the 15. |
+| 81–85 | Camp monster | mix | Best net numbers. Kulkarni: “They know. They won’t pick you.” |
+| 86 | **Not in the 15** | — | Squad photo without you. |
+| 87–88 | A-team while the nation gets hammered | mix | Bus TV. Spite. Star-3 = play angry. |
+| 89 | **The injury** | — | Opener flown home. SMS at 2am. |
+| **90** | **First cap (injury replacement)** | Bat | Not a hundred. **8 balls, don’t duck.** The country is a curse card. |
+| 91–96 | Prove you belong | mix | Neutral venues, DRS. 93 is a public duck — retry = next innings of the series. |
+| 97–99 | Locked in | mix | You are a player now. |
+| **100** | **WC1 qualification** | Bat | Must-win. Star-3 = POTM relic. |
+| 101–107 | **World Cup 1** | mix | Group, Super-8, QF. You are good. Too good. |
+| 108–**110** | **Semi-final choke** | Bat | Last over. You hole out. Scapegoat. **Dropped.** Raju stays. |
+| 111–113 | Wilderness | mix | Domestic. Empty stands. |
+| 114 | **One more special innings** | Bat | For selectors who “aren’t watching.” 20 off 6, two wickets in hand. |
+| **115** | **Last World Cup — recalled** | Bowl | Injury replacement *again*, or fans + form. Older kit. Same 5–7 min. |
+| 116–119 | WC2 knockouts | mix | The Old Enemy. Crowd with you. 118: dropped catch, −1 wicket, still win. |
+| **120** | **Final + personal milestone** | Bat *or* Bowl (toss) | **Dual primary:** (1) win the match. (2) **your number** — e.g. 18 for a tournament hundred, or 2 wickets for 50 WC wickets. Fail the milestone = 1-star win, replay for the 3-star ending. |
 
-**True roguelite** (daily tour, death wipes the tour) is a **later mode**, not v1.
+**Cast**
 
-**Win the campaign:** level 120. Then New Game+ (intents scale) / cosmetics, not “delete the kid.”
+- **Raju** — 7, 17, 37, **77 (takes your franchise slot)**, **110 (stays; you go).**
+- **Coach Kulkarni** — the only adult who texts the truth.
+- **The Veteran** — 64–67, will not give strike.
+- **The Name** — billboard who replaces you at 76. Never shown batting better.
+- **The New Ball** — overseas quick. 110 and 120.
+
+**Headlines:** *Tape-ball cup; Contracted, not trusted; Give him a knock; Dropped for a name; Best in camp, not in the 15; Injury replacement; Semi-final villain; One last World Cup.*
+
+**Chapter unlock:** 20/30 stars. 1-stars scrape the story; 3-stars are the grind.
+
+**Win:** 120, match + milestone. New Game+ scales intents. The kid stays.
 
 ### 4.7 Daily / live-ops (retention, not content treadmill)
 
@@ -675,7 +717,8 @@ If not, this idea is also dead — and that is cheaper than a year of a mid cric
 15. **Energy:** **soft.** 5 match tickets / day. Refill with **ad or wait**. **Never paywall the story** — you can always progress, slowly.
 16. **Economy:** power cards are **story**. Grind (dailies, challenges) → **coins → packs**. F2P can finish; it just takes time (more ad inventory).
 17. **Packs:** chance at a **new power card you would also earn later in the story** (early, not exclusive). **Pity** required. Story remains a complete path. This is the gacha-adjacent line — keep it documented and tight.
-18. **Campaign shape:** **Score! Hero numbered levels.** 12 chapters × 10. Every 10th level is a gate (gully cup, town selection, …, **World Cup final = 120**). Primary + 2 star missions. 20/30 stars to unlock the next chapter.
+18. **Campaign shape:** **Score! Hero numbered levels.** 12 chapters × 10. Every 10th level is a gate. **World Cup final = 120.**
+19. **Drama spine:** stall at state senior; special innings to be *considered*; best in camp, not in the 15; injury-replacement cap; WC1 semi choke; last World Cup + **personal milestone** dual-win.
 
 ## 16. Open questions (need you)
 
