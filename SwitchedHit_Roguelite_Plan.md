@@ -111,7 +111,7 @@ Tone: **warm, loud, slightly mythical gully** — not broadcast realism, not gri
 
 ### 4.2 You are the player
 
-At the start of a run you pick an **archetype** (not a licensed star):
+You are an **all-rounder**. Cards mix shots *and* balls (locked 2026-09-02). At the start of a run you still pick an **archetype** (not a licensed star) that biases the mix:
 
 | Archetype | Street origin | Deck bias | Weakness |
 | --- | --- | --- | --- |
@@ -139,9 +139,9 @@ Map **one combat encounter = one innings (or a chase)**.
 Four piles, one deck:
 
 1. **Shots** — cover, pull, glance, reverse, lofted, leave, bunt for one.
-2. **Temper** — ice, red-mist, farm, sledging (debuff the bowler), “see ball hit ball.”
-3. **Body** — hamstring tape, hydration, night-vision, tape-ball callus (relics can pin these).
-4. **Street** — underarm, one-bounce six, “last-man runner,” reverse grip. High reward, high risk. These are the identity of SwitchedHit.
+2. **Balls** — inswinger, off-cutter, slow bouncer, yorker, doosra, tape-ball dip. Same deck as shots (all-rounder). How they share a hand is still open (§16).
+3. **Temper** — ice, red-mist, farm, sledging, “see ball hit ball.”
+4. **Street** — underarm, one-bounce six, “last-man runner,” reverse grip. High reward, high risk. Identity of SwitchedHit.
 
 Card rarity: street / club / state / international. International cards are **run rewards and meta unlocks**, never an IAP crate of power.
 
@@ -165,7 +165,7 @@ Examples: cracked English willow, gully floodlight, mother’s lunch tiffin, luc
 
 Nodes (StS grammar, cricket names): **Nets** (upgrade), **Physio** (heal), **Chai stall** (shop), **Rival** (elite), **Net session with a coach** (remove/transform), **Rest day**, **Press** (gamble / curse).
 
-**Win a run:** debut century or series-defining knock at Act 4. Unlock a scar, a card, a kit colour.
+**Win a run:** survive Act 4 as the same career — not a meta of many tournaments (locked 2026-09-02). Unlock a scar, a card, a kit colour.
 
 **Lose a run:** dropped, injured, or “sent back to the gully.” Immediate retry. Meta XP still drops.
 
@@ -335,7 +335,7 @@ Roguelites die in reviews when the shop sells the win. They print when the shop 
 | **Reroll pack** | Soft currency also grindable | ₹49–99 | Shop rerolls / card remove tokens |
 | **Extra locker** (save slot) | IAP | ₹79 | QoL for people who juggle two runs |
 | **Kit / bat / celebration** | IAP or pass | ₹29–149 | Screenshot economy |
-| **Rewarded revive** | Ad | 1 per run, optional | Highest eCPM, must be skippable |
+| **Rewarded revive** | Ad | **1 per run, then you are dead** (locked 2026-09-02) | Highest eCPM, must be skippable |
 | **Rewarded extra draft / shop reroll** | Ad | 2–4 per run cap | Core India revenue |
 | **Interstitial** | Ad | After a *lost* run or returning to map, never mid-over | Don’t break the sacred table |
 | **Banner** | Ad | Menu only, adaptive | Low eCPM, low harm |
@@ -490,7 +490,7 @@ If not, this idea is also dead — and that is cheaper than a year of a mid cric
 ## 14. Key decisions
 
 1. **Scrap the replay / Unity / Next.js 3D broadcast product.** Wrong genre, wrong team size, legal pain.
-2. **Player-based roguelite deckbuilder**, not a franchise manager and not an arcade sim.
+2. **Player-based roguelite deckbuilder**, not a franchise manager and not an arcade sim. **One run = whole career. You are an all-rounder; cards mix shots and balls. First three minutes are gully culture. One ad-revive per run, then dead.**
 3. **Flutter + widget UI + Flame vignette**, not Unity.
 4. **F2P ads + IAP**, cosmetics and QoL, no power loot boxes.
 5. **Android / Play first**, 12+ rating, no licensed marks.
@@ -499,17 +499,26 @@ If not, this idea is also dead — and that is cheaper than a year of a mid cric
 
 ---
 
-## 15. Open questions (need you)
+## 15. Decisions already made (2026-09-02)
 
-1. **Archetype you personally want to play first?** Dasher / Wall / Wristy / Opener.
-2. **Combat length:** 6-minute street fights vs 12-minute “proper T20 overs.” I recommend 6–8 for mobile.
-3. **How autobiographical is the gully?** Pune-specific flavour vs generic Indian street.
-4. **Premium $3 experiment** as a second APK later, or F2P-only forever?
-5. **Company:** keep personal Play account (12 testers/app) vs Pvt Ltd org account.
+1. **Ladder:** one run **is** the whole career (gully → international). Death ends that life. International is the Act 4 boss. Not a meta of many tournaments.
+2. **Combat identity:** you are an **all-rounder**. Cards mix **shots and balls**. v1 is not batting-only.
+3. **Ads:** **one optional rewarded revive per run**, then you are dead. Not premium-currency revives. Not ads-off-only.
+4. **First three minutes:** **gully night, tennis ball, sledging, reverse-sweep as a joke that works.** Culture first. Cards second. India-native.
+
+## 16. Open questions (need you)
+
+1. **All-rounder, in a single node:** is a map fight one innings (bat *or* bowl) or a whole match (both)?
+2. **Long run vs bus:** 45–90 min career with no mid-run save will lose Android users to process death. Ironman, or checkpoints between acts?
+3. **Mixed cards physically:** dual-faced (bat/bowl on one card), two draw piles, or “skill” cards that work in both innings?
+4. **Combat length:** 6-minute street fights vs 12-minute “proper T20 overs.”
+5. **How Pune-specific is the gully?** Named chowks vs generic Indian street.
+6. **Player body:** boy / girl / pick-at-start / unstated.
+7. **Company:** personal Play account (12 testers per app) vs Pvt Ltd org account.
 
 ---
 
-## 16. Sources (planning, not audited financials)
+## 17. Sources (planning, not audited financials)
 
 - Flame engine / pub.dev 1.38.2 (Aug 2026); Flame GitHub (~10.8k stars)
 - DEV: “Flutter Game Development in 2026”; Google I/O Flip as widget-only card game
