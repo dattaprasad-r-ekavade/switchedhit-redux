@@ -154,27 +154,109 @@ Card rarity: street / club / state / international. International cards are **ca
 
 Examples: cracked English willow, gully floodlight, mother’s lunch tiffin, lucky red thread, “no helmet in the colony” (power + vulnerability), DRS referral (once per boss). Relics are the *build* people screenshot.
 
-### 4.6 Map / career ladder (act-based, Shadow Fight–style)
+### 4.6 Campaign ladder (Score! Hero grammar, cricket career)
 
-**Not a permadeath roguelite.** You asked to time-gate this for an Indian audience: **one stage at a time**, like Shadow Fight’s acts.
+**Not a permadeath roguelite.** One numbered stage at a time. **Score! Hero** (First Touch) is the template we steal:
 
-| Act | Name | Stages | Boss |
+- Career is **hundreds of authored levels**, not a random map.
+- **10 levels = one chapter.** Levels `n0` are **gates**: a tournament, a selection, a cap.
+- Every level has a **must-clear primary** plus **two star missions** (Score Hero’s “secret objectives,” revealed after first clear). 1–3 stars.
+- Need **20 / 30 stars** in a chapter to open the next (replay for stars = grind + ads, story not bricked).
+- Energy = our **5 tickets**. Retry the same level. Autosave.
+- Between levels: a line of story (coach SMS, local paper, rival sledging) — not a cutscene budget.
+
+Fight length still **5–7 minutes**. Bat or bowl is flagged on the level card.
+
+#### What we steal from Score! Hero (and what we do not)
+
+| Steal | Do not steal |
+| --- | --- |
+| Numbered career 1…N with a cup every 10 | 800+ levels of the same “score a goal” |
+| Primary + 2 star missions | Analog flick gameplay |
+| Stars as chapter keys | Hard hearts that brick the story |
+| Story beats: trials, bench, rival, injury, first cap, World Cup | Licensed clubs |
+| Comeback / last-over / “prove the scout” scenarios | Rewind-for-gems as the core loop |
+
+**Star missions (catalogue — pick two per level):** chase without a six; maiden over; take the set batter; 12 off 6; no extras; play the meme reverse and *survive*; partnership 30 with a bunny; DRS review correct; death-over yorker; night-game no misfield.
+
+#### Full career: 12 chapters × 10 levels = **120**. Level 120 = World Cup final.
+
+| Levels | Chapter | Gate (every 10) |
+| --- | --- | --- |
+| 1–9 | **Gully** | **10 Gully Annual Tournament** |
+| 11–19 | **Local academy** | **20 Town selection** |
+| 21–29 | **Town circuit** | **30 District trials** |
+| 31–39 | **District** | **40 Division cup final** |
+| 41–49 | **Inter-district / zone** | **50 State age-group call-up** |
+| 51–59 | **State U-19** | **60 State senior contract** |
+| 61–69 | **State senior** | **70 Domestic T20 draft** |
+| 71–79 | **Domestic T20 / franchise** | **80 National camp** |
+| 81–89 | **National camp / A side** | **90 First international cap** |
+| 91–99 | **Internationals** | **100 World Cup qualification** |
+| 101–109 | **World Cup** (group + knockouts) | **110 World Cup semi-final** |
+| 111–119 | **World Cup knockout run** | **120 World Cup final** |
+
+No BCCI / IPL / ICC names on the map. “Domestic T20” is a made-up league. “World Cup” is generic.
+
+#### Levels 1–10 — Gully (tape ball, sodium lights)
+
+| # | Name | Mode | Primary | Why it is not “another HP bar” |
+| --- | --- | --- | --- | --- |
+| 1 | First throw-down | Bat | Score 12 off 4 vs a mate who lobs | Tutorial. Intent is always “float.” |
+| 2 | Compound wall | Bat | 20 off 6, short straight boundary | Sixes are cheap; getting *out* is the fail. Teaches greed. |
+| 3 | Tennis-ball bouncer | Bat | Survive 6 balls, don’t hole out | First “leave / block” level. |
+| 4 | Last man standing | Bowl | 8 balls, 2 wickets, they need 14 | You bowl; their slogger is the enemy bar. |
+| 5 | Streetlight out | Bat | 18 off 8, every 3rd ball is a wide-darkness | Random “can’t see spin” curse. |
+| 6 | Underarm dare | Bowl | Take 1 wicket with a street ball card | Unlocks the underarm card *by playing it*. |
+| 7 | Rival from the next chawl | Bat | Beat “Raju” chase 22; he sledges (temper costs +1) | Recurring rival. |
+| 8 | Gully nets | Bat *or* Bowl (pick) | Complete coach’s 3-card combo | Mini shop after. |
+| 9 | Injured opener, you’re in | Bat | 15 off 5, 1 wicket in hand | Bench / “sent in” fantasy (Score Hero substitute beat). |
+| **10** | **Gully Annual Tournament** | Bat then Bowl (two short innings, still ≤7 min total) | Win the tape-ball cup | First *gate*. Newspaper line. Relic: cracked bat. |
+
+#### Levels 11–20 — Local academy
+
+| # | Name | Mode | Primary |
 | --- | --- | --- | --- |
-| 0 | Gully (tutorial, skippable) | 2 fights | Local fast bowler, tennis ball |
-| 1 | Maidans / club | 6–8 stages | District seamer |
-| 2 | State / age-group | 6–8 stages | Mystery spinner |
-| 3 | Franchise trial / league | 6–8 stages | Death-over specialist |
-| 4 | International | 5–7 stages + finale | “The New Ball” — pace + crowd |
+| 11 | Academy fitness | Bowl | 6 legal balls, 0 extras (body, not skill) |
+| 12 | New-ball leather | Bat | First hard-ball fight. Leave the outswinger. |
+| 13 | Coach’s favourite vs you | Bat | Elite academy batter-bowler. Don’t slog. |
+| 14 | Pair with a bunny | Bat | You must farm strike; partner is a 9 who will get out if they face 3 balls |
+| 15 | Wet outfield | Bowl | No slip catching. Wickets only bowled/LBW. |
+| 16 | Reverse as a joke | Bat | Star-3 = play reverse-sweep and not get out. EV is bad. People will do it. |
+| 17 | Raju shows up at nets | Bowl | Rival again, now in whites. |
+| 18 | Selection rumour | Bat | Scout in the crowd: extra star if strike rate ≥ 140 *and* you don’t hole out |
+| 19 | Night academy game | Bat | Slow ball grips. Wristy shines. |
+| **20** | **Town selection** | Bowl | 4 overs, 3 wickets, economy under 8. Fail = retry, not “career over.” |
 
-- Map is **linear with optional side fights** (nets, chai stall, rival), not a branching StS run that wipes.
-- Clear a stage to unlock the next. **Lose = retry that stage.** One optional **ad-revive per fight**, then you still retry the stage — you do not lose the act.
-- **Autosave** after every stage. Close the app on the bus; open it on the same node.
-- Bat and bowl stages mixed on the map (icon tells you which pile you will draw).
-- **Fight length:** 5–7 minutes. A session is **one or two stages**, not a 70-minute career.
+#### Levels 21–120 — rest of the career (named gates, authored scenarios)
 
-**True roguelite** (daily tour, seeded run, death wipes the tour) is a **later mode**, not v1.
+Each chapter follows the same 9 + 1 pattern: **7 league/academy fights, 1 rival or injury beat, 1 nets/shop, 1 gate.**
 
-**Win the campaign:** finish Act 4. Then New Game+ / harder intents / cosmetics, not “delete the kid.”
+| # | Scenario type (rotate these, don’t repeat the same fight) |
+| --- | --- |
+| 21–29 Town | Sunday grounds, matting pitch, local umpire (no DRS). **30 District trials** — bat a 30-ball knock vs district new-ball. |
+| 31–39 District | Turf, first helmet optional relic. Big spinning grounds. **40 Division cup final** — chase 48 off 5. |
+| 41–49 Zone | Travel, tired body (start with −1 energy). **50 State U-19 call-up** — bowl at a decorated junior batter. |
+| 51–59 State U-19 | Camps, shared rooms, sledging from seniors. **60 State senior contract** — last-over 16 off 6. |
+| 61–69 State senior | Red-ball *flavour* (more leaves) but still T20-shaped clock. Injury level: 4 energy max. **70 Domestic T20 draft** — 2-over audition, both modes. |
+| 71–79 Domestic T20 | Floodlights, death overs, crowd curse. **80 National camp** — fitness + 12-ball death bowl. |
+| 81–89 National camp | Net bowlers who are faster than the game so far. **90 First cap** — bat 8 balls, don’t get a duck (primary is “see off the new ball”). |
+| 91–99 Internationals | Neutral venues, DRS on. **100 WC qualification** — must win; star-3 = player-of-the-match relic. |
+| 101–109 World Cup | Group: defend 28 off 4; Super-8 chase; knock-out last-over. **110 Semi-final** — named overseas quick, bouncer barrage. |
+| 111–119 Knockout run | Recover from 111 “dropped catch” (start −1 wicket). Rival nation (no real flags: “The Old Enemy”). **120 World Cup final** — you choose bat or bowl after the toss card. Longest fight still capped at 7 minutes. |
+
+**Recurring cast (Score Hero’s veteran rival, cricket-flavoured):**
+
+- **Raju** — gully rival, returns at 7, 17, 37, 77.
+- **Coach Kulkarni** — academy, SMS between levels.
+- **The Veteran** — state senior who won’t give you strike (level 64).
+- **The New Ball** — Act-final quick, portrait reused with better kit.
+
+**Chapter unlock:** 20 stars from the last 10 levels. You can brute-force on 1-stars and scrape through; 3-starring is the grind/ads loop.
+
+**True roguelite** (daily tour, death wipes the tour) is a **later mode**, not v1.
+
+**Win the campaign:** level 120. Then New Game+ (intents scale) / cosmetics, not “delete the kid.”
 
 ### 4.7 Daily / live-ops (retention, not content treadmill)
 
@@ -593,6 +675,7 @@ If not, this idea is also dead — and that is cheaper than a year of a mid cric
 15. **Energy:** **soft.** 5 match tickets / day. Refill with **ad or wait**. **Never paywall the story** — you can always progress, slowly.
 16. **Economy:** power cards are **story**. Grind (dailies, challenges) → **coins → packs**. F2P can finish; it just takes time (more ad inventory).
 17. **Packs:** chance at a **new power card you would also earn later in the story** (early, not exclusive). **Pity** required. Story remains a complete path. This is the gacha-adjacent line — keep it documented and tight.
+18. **Campaign shape:** **Score! Hero numbered levels.** 12 chapters × 10. Every 10th level is a gate (gully cup, town selection, …, **World Cup final = 120**). Primary + 2 star missions. 20/30 stars to unlock the next chapter.
 
 ## 16. Open questions (need you)
 
