@@ -2,11 +2,11 @@
 
 **CONFIDENTIAL · GAME + BUSINESS PLAN · 2 SEPTEMBER 2026**
 
-**A Flutter Android roguelite deckbuilder about becoming a cricketer**
+**A Flutter Android cricket deckbuilder about becoming a cricketer**
 
 Street gully → maidans → district → state → franchise trial → international.
 
-You are the player. Not a franchise owner. Not a live-score clone. A career that dies, and a deck that is your technique.
+You are the player. Not a franchise owner. **Progression is act-based (Shadow Fight–style), not a permadeath career run.** Cards are your technique. Fights are 5–7 minutes. Lose a stage, retry it. Keep your kit.
 
 **Status:** The 3D match-replay product is **retired**. `next_app/` and `SwitchedHit_Replay_Plan.docx` have been removed from the repo. This document is the product plan.
 
@@ -20,13 +20,14 @@ You are the player. Not a franchise owner. Not a live-score clone. A career that
 
 ## 1. What I heard (and what this is)
 
-You want **SwitchedHit** as a **new Flutter Android game**: a **roguelite deck builder around cricket**. The player starts at **street level** and climbs toward **international**. It is **player-based** (you *are* the batter / all-rounder), released on the **Play Store**, with **ads and IAPs**, and the job of this document is to say whether that can make money and how to build it.
+You want **SwitchedHit** as a **new Flutter Android game**: a **cricket deck builder** that *started* as a roguelite and is now **explicitly not a pure roguelike**. You asked to **time-gate and stage it** like **Shadow Fight / ninja act games** — one stage at a time, digestible for an Indian mobile audience. Street → international is the **campaign**, not one permadeath run.
 
-That combination is rare and commercially interesting:
+That combination is still rare:
 
-- Cricket mobile is huge in India and almost entirely **arcade sims** (Real Cricket, WCC) or **management** (Hitwicket).
-- Roguelite deckbuilders are proven on mobile (**Slay the Spire**, **Balatro**, a wave of Balatro-likes).
-- Nobody has a serious **“you are the street batter, your shots are cards, death is being dropped”** game.
+- Cricket mobile is **arcade sims** or **managers**.
+- Card games that print money on phones are either PvP (Clash Royale) or premium roguelites (Balatro).
+- Act-based F2P (Shadow Fight 2) is what India already *finished*.
+- The hole: **player-identity cricket + cards + Shadow Fight campaign spine.**
 
 The risk is equally clear: India eCPMs are low, cricket IP is legally sharp, and a pay-to-win deckbuilder will get review-bombed. The plan below is built around those constraints.
 
@@ -34,13 +35,13 @@ The risk is equally clear: India eCPMs are low, cricket IP is legally sharp, and
 
 ## 2. One-sentence product
 
-**SwitchedHit is a single-player roguelite where each run is one cricketer’s career, each fight is an innings, and your deck is the shots, nerves, and street tricks you refuse to unlearn.**
+**SwitchedHit is a single-player act-based cricket deckbuilder: you are an all-rounder climbing from the gully, each stage is a 5–7 minute innings, and your decks (shots / balls) are the technique you keep.**
 
 Tagline options (pick one in production, do not mix):
 
 - *From the gully to the world.*
 - *Build a batter. Break a bowling attack.*
-- *Every run is a career. Every card is a shot.*
+- *One stage at a time. All the way up.*
 
 ---
 
@@ -105,9 +106,11 @@ Those are **incumbents with years of UA and (in Real Cricket’s case) player-li
 
 ### 4.1 Fantasy and tone
 
-You are not Virat. You are a kid who bats with a taped tennis ball under a streetlight. A coach who may or may not be real (the “Keeper of the Book”) hands you a deck. Each **run** is one career. When you get out of the tournament, get injured, or get dropped, that career ends. Meta unlocks (nets, scars, superstitions) persist.
+You are not Virat. You are a kid who bats with a taped tennis ball under a streetlight. A coach who may or may not be real (the “Keeper of the Book”) hands you a book of shots and balls.
 
-Tone: **warm, loud, slightly mythical gully** — not broadcast realism, not grimdark. Think *Hades* sincerity + *Slay the Spire* clarity + *gully cricket* slang. Commentary is a character, not licensed audio.
+**Campaign, not a dying career:** Shadow Fight 2 grammar. Acts you clear in order. Lose a fight → retry that fight (optional one ad-revive, then you still retry, you do not lose the act). Kits, cards, relics **persist**. The fantasy of “rising” is the map, not permadeath.
+
+Tone: **warm, loud, slightly mythical gully**. Think Shadow Fight’s act-to-act hunger + StS *card clarity* + gully slang. Commentary is a character, not licensed audio.
 
 ### 4.2 You are the player
 
@@ -126,7 +129,7 @@ No team management screen in v1. No 15-man squad. You *are* the XI’s spine; pa
 
 Map **one combat encounter = one innings (or a chase)**.
 
-- **HP / wickets:** you have a wicket bar (start 10 “lives” that represent confidence + partners + luck, *not* 10 literal dismissals — tune so a street fight is 6–10 minutes). Hitting 0 = dismissed / career node failed.
+- **HP / wickets:** you have a wicket bar (confidence + partners + luck, *not* 10 literal dismissals — tune so a street fight is **5–7 minutes**). Hitting 0 = dismissed / **this stage failed**. Retry the node. Campaign stays.
 - **Energy:** stamina per over (3 energy, StS-like). Playing a cover drive costs 1; a rampaging slog-sweep costs 2; “farm strike” is 0-cost but low reward.
 - **Block:** leave, dead bat, wear the shine. Converts to “survival” against bouncers.
 - **Damage you deal = runs.** The bowling attack has an **over-limit / target**. Street fight: 60 off 8. District final: 148 off 20. International: Test-session pressure or death-over T20.
@@ -139,37 +142,39 @@ Map **one combat encounter = one innings (or a chase)**.
 Four piles, one deck:
 
 1. **Shots** — cover, pull, glance, reverse, lofted, leave, bunt for one.
-2. **Balls** — inswinger, off-cutter, slow bouncer, yorker, doosra, tape-ball dip. Same deck as shots (all-rounder). How they share a hand is still open (§16).
+2. **Balls** — inswinger, off-cutter, slow bouncer, yorker, doosra, tape-ball dip. **Separate pile.** Bat nodes draw Shots; bowl nodes draw Balls.
 3. **Temper** — ice, red-mist, farm, sledging, “see ball hit ball.”
 4. **Street** — underarm, one-bounce six, “last-man runner,” reverse grip. High reward, high risk. Identity of SwitchedHit.
 
-Card rarity: street / club / state / international. International cards are **run rewards and meta unlocks**, never an IAP crate of power.
+Card rarity: street / club / state / international. International cards are **campaign rewards** (choose 1 of 3), never an IAP crate of power.
 
-**Deck size:** start ~12, grow to 18–22, then thin. Removing a “slog” is as important as adding a “late cut.”
+**Loadout:** 12–18 cards per pile from a persistent collection. Nets = upgrade / remove. This is closer to Shadow Fight gear + a deckbuilder shop than to a StS run wipe.
 
 ### 4.5 Relics = coaching cues
 
 Examples: cracked English willow, gully floodlight, mother’s lunch tiffin, lucky red thread, “no helmet in the colony” (power + vulnerability), DRS referral (once per boss). Relics are the *build* people screenshot.
 
-### 4.6 Map / career ladder (the roguelite)
+### 4.6 Map / career ladder (act-based, Shadow Fight–style)
 
-**Acts (one run):**
+**Not a permadeath roguelite.** You asked to time-gate this for an Indian audience: **one stage at a time**, like Shadow Fight’s acts.
 
-| Act | Name | Length | Boss |
+| Act | Name | Stages | Boss |
 | --- | --- | --- | --- |
-| 0 | Gully (tutorial, skippable) | 2 fights | Local fast bowler with a new ball |
-| 1 | Maidans / club | 8–10 nodes | District seamer + reverse swing |
-| 2 | State / age-group | 8–10 nodes | Mystery spinner, turning deck |
-| 3 | Franchise trial / league | 8–10 nodes | Death-over specialist |
-| 4 | International window | 6–8 nodes + finale | “The New Ball” — pace + crowd as a mechanic |
+| 0 | Gully (tutorial, skippable) | 2 fights | Local fast bowler, tennis ball |
+| 1 | Maidans / club | 6–8 stages | District seamer |
+| 2 | State / age-group | 6–8 stages | Mystery spinner |
+| 3 | Franchise trial / league | 6–8 stages | Death-over specialist |
+| 4 | International | 5–7 stages + finale | “The New Ball” — pace + crowd |
 
-Nodes (StS grammar, cricket names): **Nets** (upgrade), **Physio** (heal), **Chai stall** (shop), **Rival** (elite), **Net session with a coach** (remove/transform), **Rest day**, **Press** (gamble / curse).
+- Map is **linear with optional side fights** (nets, chai stall, rival), not a branching StS run that wipes.
+- Clear a stage to unlock the next. **Lose = retry that stage.** One optional **ad-revive per fight**, then you still retry the stage — you do not lose the act.
+- **Autosave** after every stage. Close the app on the bus; open it on the same node.
+- Bat and bowl stages mixed on the map (icon tells you which pile you will draw).
+- **Fight length:** 5–7 minutes. A session is **one or two stages**, not a 70-minute career.
 
-**Win a run:** survive Act 4 as the same career — not a meta of many tournaments (locked 2026-09-02). Unlock a scar, a card, a kit colour.
+**True roguelite** (daily tour, seeded run, death wipes the tour) is a **later mode**, not v1.
 
-**Lose a run:** dropped, injured, or “sent back to the gully.” Immediate retry. Meta XP still drops.
-
-**Run time target:** first win possible in **45–70 minutes**. Individual fight **6–12 minutes**. If a fight exceeds 15 minutes, cut enemy HP, do not add timing minigames.
+**Win the campaign:** finish Act 4. Then New Game+ / harder intents / cosmetics, not “delete the kid.”
 
 ### 4.7 Daily / live-ops (retention, not content treadmill)
 
@@ -183,6 +188,7 @@ Nodes (StS grammar, cricket names): **Nets** (upgrade), **Physio** (heal), **Cha
 - No analog batting, no 3D stadium broadcast (that was the scrapped product).
 - No real-money contests, no “predict the IPL,” no fantasy XI.
 - No Unity.
+- No permadeath of the campaign. Roguelite daily-tour is post-v1.
 
 ---
 
@@ -192,14 +198,14 @@ Nodes (StS grammar, cricket names): **Nets** (upgrade), **Physio** (heal), **Cha
 | --- | --- | --- |
 | **Slay the Spire** | Energy, intents, map, relics, card remove | Fantasy art, 3 acts as-is |
 | **Balatro** | Short “one more run,” number-go-up dopamine, mobile-native | Poker IP, premium-only (we are F2P) |
-| **Hades** | Character, death as story, meta that feels like training | Isometric action |
+| **Shadow Fight 2** | Act maps, retry-the-fight, persistent gear, India-digestible F2P | Weapon gacha, energy that bricks the game |
 | **Inscryption** | The table is sacred; cards have weight | Horror / ARG |
 | **Marvel Snap** | Thumb-first card UX, 3-minute tension | Locations / 12-turn cube economy |
 | **Hitwicket** | Proof cricket-strategy players exist in India | Daily 8pm obligation, GM fantasy |
 | **Stick Cricket** | Casual cricket can be cartoon and still feel like cricket | Shallow meta |
 | **Monster Train / Wildfrost** | Layered combat ideas if we ever do “two innings” | Complexity at tutorial |
 
-**North star loop:** *draft a ridiculous reverse-sweep build, die to a bouncer barrage, immediately start again with one more unlocked street card.*
+**North star loop:** *lose a gully fight to a bouncer, slam the meme reverse-sweep anyway, retry the same kid, beat the stage, open the next chowk.*
 
 ---
 
@@ -335,7 +341,7 @@ Roguelites die in reviews when the shop sells the win. They print when the shop 
 | **Reroll pack** | Soft currency also grindable | ₹49–99 | Shop rerolls / card remove tokens |
 | **Extra locker** (save slot) | IAP | ₹79 | QoL for people who juggle two runs |
 | **Kit / bat / celebration** | IAP or pass | ₹29–149 | Screenshot economy |
-| **Rewarded revive** | Ad | **1 per run, then you are dead** (locked 2026-09-02) | Highest eCPM, must be skippable |
+| **Rewarded revive** | Ad | **1 per fight**, then retry the stage | Highest eCPM. Campaign is not wiped |
 | **Rewarded extra draft / shop reroll** | Ad | 2–4 per run cap | Core India revenue |
 | **Interstitial** | Ad | After a *lost* run or returning to map, never mid-over | Don’t break the sacred table |
 | **Banner** | Ad | Menu only, adaptive | Low eCPM, low harm |
@@ -413,7 +419,7 @@ Must be fun on a mid-range Android without accounts:
 
 - 1 archetype (Dasher)
 - 18 cards, 8 relics, 4 enemies, 1 boss
-- 1 act map (Gully → club final)
+- Gully act map (2–3 stages, retry on loss)
 - Flame vignette for 4 shot types
 - Local save
 - Fake shop (no real money yet)
@@ -479,7 +485,7 @@ Solo + specialists:
 
 **Build the vertical slice on Flutter (widgets + a small Flame pitch). Do not hire, do not buy cricket licenses, do not start ads, do not clone Hitwicket.**
 
-If after two deaths you still queue another gully fight, continue to Alpha and point the Play closed test at it.
+If after **losing a gully fight** you still tap retry (or the next stage) without being asked, continue to Alpha.
 
 If not, this idea is also dead — and that is cheaper than a year of a mid cricket manager.
 
@@ -490,7 +496,7 @@ If not, this idea is also dead — and that is cheaper than a year of a mid cric
 ## 14. Key decisions
 
 1. **Scrap the replay / Unity / Next.js 3D broadcast product.** Wrong genre, wrong team size, legal pain.
-2. **Player-based roguelite deckbuilder**, not a franchise manager and not an arcade sim. **One run = whole career. You are an all-rounder; cards mix shots and balls. First three minutes are gully culture. One ad-revive per run, then dead.**
+2. **Player-based cricket deckbuilder with a Shadow Fight act campaign**, not a permadeath roguelite and not a franchise manager. All-rounder via bat/bowl **stages**. Two card piles. 5–7 min fights. Gully-first. One ad-revive **per fight**.
 3. **Flutter + widget UI + Flame vignette**, not Unity.
 4. **F2P ads + IAP**, cosmetics and QoL, no power loot boxes.
 5. **Android / Play first**, 12+ rating, no licensed marks.
@@ -501,20 +507,27 @@ If not, this idea is also dead — and that is cheaper than a year of a mid cric
 
 ## 15. Decisions already made (2026-09-02)
 
-1. **Ladder:** one run **is** the whole career (gully → international). Death ends that life. International is the Act 4 boss. Not a meta of many tournaments.
+1. **Ladder (updated):** **act-based campaign**, one stage at a time (Shadow Fight / ninja-act grammar). **Not** a permadeath whole-career run. Street → international is the map you keep.
 2. **Combat identity:** you are an **all-rounder**. Cards mix **shots and balls**. v1 is not batting-only.
-3. **Ads:** **one optional rewarded revive per run**, then you are dead. Not premium-currency revives. Not ads-off-only.
+3. **Ads:** **one optional rewarded revive per fight**, then you retry the **stage** (you do not lose the act). Not premium-currency revives.
 4. **First three minutes:** **gully night, tennis ball, sledging, reverse-sweep as a joke that works.** Culture first. Cards second. India-native.
+5. **Node:** one **innings**, bat **or** bowl. Map tells you which. Not a full match per node.
+6. **Saves:** **silent autosave after every stage.** Resume the campaign forever. Death is local to the fight.
+7. **Reverse-sweep:** a **meme** — funny vignette, **bad expected value**, people slam it anyway. Personality, not EV.
+8. **Hands:** **two piles** — Shot deck and Ball deck. Node picks which you draw from. (This is *not* a mixed hand; it is two games sharing relics/meta. Flagged in §16.)
+9. **Enemy (stated):** **one named bowler**, intent = next ball. Portrait-scale. Bowl-node opponent still unspecified.
+10. **Format:** **always T20-shaped.** International = nastier intents and better kits, not Test rules.
+11. **All-rounder means map, not hand:** you take bat nodes *and* bowl nodes. Hands are never mixed. Relics/meta are the mix.
+12. **Bowl node enemy:** **named batter with an innings bar.** Symmetric engine.
+13. **Fight length:** **5–7 minutes.** Cut the fight if longer.
 
 ## 16. Open questions (need you)
 
-1. **All-rounder, in a single node:** is a map fight one innings (bat *or* bowl) or a whole match (both)?
-2. **Long run vs bus:** 45–90 min career with no mid-run save will lose Android users to process death. Ironman, or checkpoints between acts?
-3. **Mixed cards physically:** dual-faced (bat/bowl on one card), two draw piles, or “skill” cards that work in both innings?
-4. **Combat length:** 6-minute street fights vs 12-minute “proper T20 overs.”
-5. **How Pune-specific is the gully?** Named chowks vs generic Indian street.
-6. **Player body:** boy / girl / pick-at-start / unstated.
-7. **Company:** personal Play account (12 testers per app) vs Pvt Ltd org account.
+1. **Street kid body:** boy / girl / pick-at-start / unstated.
+2. **How Pune-specific is the gully?**
+3. **Company:** personal Play account vs Pvt Ltd.
+4. **Energy gate (Shadow Fight did this):** do stages cost “match tickets / stamina,” or can you retry forever for free?
+5. **Deckbuilding without gacha:** after each stage, choose 1 of 3 cards (deterministic). OK, or do you want a collection book that still *looks* like opening packs (cosmetic only)?
 
 ---
 

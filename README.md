@@ -1,8 +1,8 @@
 # SwitchedHit
 
-Flutter Android **roguelite deckbuilder** about becoming a cricketer.
+Flutter Android **cricket deckbuilder** about becoming a cricketer.
 
-Street gully → maidans → district → state → franchise trial → international. You are the player, not a franchise owner.
+Street gully → international as a **Shadow Fight–style act campaign** (one stage at a time). You are the player, not a franchise owner. Not a permadeath roguelike.
 
 The 3D match-replay spike (`next_app/`, Unity/Next.js plan) is **retired**.
 
