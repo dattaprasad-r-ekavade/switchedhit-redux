@@ -520,14 +520,20 @@ If not, this idea is also dead — and that is cheaper than a year of a mid cric
 11. **All-rounder means map, not hand:** you take bat nodes *and* bowl nodes. Hands are never mixed. Relics/meta are the mix.
 12. **Bowl node enemy:** **named batter with an innings bar.** Symmetric engine.
 13. **Fight length:** **5–7 minutes.** Cut the fight if longer.
+14. **Spine:** **Shadow Fight–style acts**, not a permadeath roguelite. One stage at a time. Indian-digestible.
+15. **Energy:** **soft.** 5 match tickets / day. Refill with **ad or wait**. **Never paywall the story** — you can always progress, slowly.
+16. **Economy:** power cards are **story**. Grind (dailies, challenges) → **coins → packs**. F2P can finish; it just takes time (more ad inventory).
+17. **Packs:** chance at a **new power card you would also earn later in the story** (early, not exclusive). **Pity** required. Story remains a complete path. This is the gacha-adjacent line — keep it documented and tight.
 
 ## 16. Open questions (need you)
 
 1. **Street kid body:** boy / girl / pick-at-start / unstated.
 2. **How Pune-specific is the gully?**
 3. **Company:** personal Play account vs Pvt Ltd.
-4. **Energy gate (Shadow Fight did this):** do stages cost “match tickets / stamina,” or can you retry forever for free?
-5. **Deckbuilding without gacha:** after each stage, choose 1 of 3 cards (deterministic). OK, or do you want a collection book that still *looks* like opening packs (cosmetic only)?
+4. **Pity numbers** for story-early pack drops (e.g. guaranteed in N packs / cannot duplicate until the set is complete).
+5. **Street kid body:** boy / girl / pick-at-start / unstated.
+6. **How Pune-specific is the gully?**
+7. **Company:** personal Play account vs Pvt Ltd.
 
 ---
 
