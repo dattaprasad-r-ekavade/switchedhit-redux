@@ -411,6 +411,75 @@ Balatro could charge $10 because it was already a phenomenon on PC. We are unkno
 
 ---
 
+## 9.8 India-ok vs West-fair: ratings and the path to 10/10
+
+Research snapshot (Sep 2025–Mar 2026). Figures are industry reports, not our forecasts.
+
+**What Indian players actually tolerate / buy**
+
+- India is volume, not ARPU: ~$3 ARPU vs ~$215 US (Lightbox / Economic Times 2025–26). Downloads are huge; paying is a minority, but that minority is growing.
+- Lightbox × Rooter: **74.9%** of surveyed gamers already spend on *non-RMG* IAP; **31.2%** spend ₹1,000+/month; spend mix **battle passes 40% / cosmetics 37% / unlockable content 23%**.
+- **12%** call in-game ads annoying; **38% would quit if ad load is excessive** — hybrid ads+IAP is required, ad spam is not.
+- BW Disrupt (Nov 2025): **~33%** report making purchases; **mid-core takes ~50% of spend**; people pay for **cosmetics and power-ups**, not gambling. **UPI ~80%** of gaming payments; **54%** of payers convert in the **first week**.
+- Hitwicket / Krafton commentary: Gen Z spend is **mostly cosmetics**; older spenders still buy power. BGMI’s move toward cheaper, clearer cosmetics was reported to lift satisfaction *and* revenue (Krafton India / trade press).
+- Cultural: games should feel **free**. ₹49–199 UPI taps work; ₹800 Western battle-pass prices do not. Regional language (Hindi/Tamil/Telugu) is a conversion lever, not a nice-to-have.
+- Energy gates and opaque loot are familiar from Shadow Fight / Free Fire / cricket F2P. Familiar ≠ loved. They work on whales and get one-starred by everyone else.
+
+**What international (esp. US/UK/EU) players call predatory**
+
+- Random **paid power** (Battlefront II, FIFA Ultimate Team, Madden packs) is the radioactive pattern. Review bombs, creator boycotts, congressional language (“Star Wars-themed casino”).
+- **Loot boxes** = gambling-adjacent: Belgium treats *paid* loot boxes as illegal chance games (2018 opinion; Antwerp *LS v Apple* Jan 2025). Play/App Store already require **odds before purchase**. EU/UK/US lawsuits and 18+ pressure are the trend, not a fad.
+- Other west-hated patterns (Norwegian Consumer Council *Get Played*): leftover premium currency, two-layer gems, paywalls on the story, “just short of the price” bundles (FF14 Mobile 2025 backlash).
+- West *does* pay: **battle pass + cosmetics** (Fortnite, Brawl Stars, Clash Royale). Clash Royale added **regional pricing** (2025) so India/LATAM are not charged US rates. That is the global-fair playbook.
+- Gacha can still print money in the West (*Genshin*) **if** pity is honest and you can eventually get the thing by playing. It will never feel “fair” to a Steam/Balatro audience.
+
+**Game types that sit in the overlap (India-ok AND not radioactive in the West)**
+
+| Type | India | West | Notes |
+| --- | --- | --- | --- |
+| Act campaign, retry stages (Shadow Fight 2) | High | Medium | Native to India. Fine in West if not energy-bricked |
+| Short card fights + persistent loadout (Clash Royale / Brawl Stars) | High if priced locally | High | Best dual-market model |
+| Cosmetic + battle pass F2P (BGMI / Fortnite) | High (identity spend) | High | Needs scale |
+| Premium one-price (Balatro / StS) | Low in India cricket | Very high | Wrong funnel vs free cricket games |
+| Hard gacha P2W cricket | High short-term rupees | Toxic | Legal-adjacent after RMG ban |
+| Ad-only hypercasual | High installs, tiny $ | Fine | Not a career game |
+
+**Ratings (1 = predatory / unworkable, 10 = dual-market gold)**
+
+Score is **blended**: 50% India fit (will they play and pay via UPI/ads) + 50% international fairness (reviews, EU loot-box risk, diaspora eCPM).
+
+| Dimension | Typical India cricket / Shadow Fight F2P (“their” default) | Our current plan | 10/10 target |
+| --- | --- | --- | --- |
+| India play/pay fit | 8 | 7 | 9 |
+| International fairness | 3 | 6 | 9 |
+| Legal / store (odds, RMG-adjacent, Belgium) | 3 | 5 | 9 |
+| Long-term LTV (not whale-burn) | 4 | 7 | 9 |
+| Ads without churn | 4 | 7 | 9 |
+| **Blended** | **4.5 / 10** | **6.5 / 10** | **10** |
+
+Why we are not a 10 yet: **packs that can roll new power cards** (even if the story also grants them later) are still a paid loot box. That fails Belgium, needs Play odds disclosure, and is the first thing a Western reviewer will screenshot. Soft energy and “story never paywalled” are the parts that already score well.
+
+**Steps to 10/10 (do in this order)**
+
+1. **Direct buy / craft every power card.** If it can appear in a pack, it has a **published coin price**. China draft rules and Western “I just want that cover drive” both require this. Packs become a *discount on random*, not the only door.
+2. **Odds on the pack screen before spend.** Play/App Store requirement. Also print pity: e.g. featured card guaranteed by pack 10; no duplicate of a missing story card until the set is complete.
+3. **Story path beats Act 4 on story cards alone.** Pack-early is convenience, never a DPS check. QA a F2P account with zero packs through the finale every patch.
+4. **Keep soft energy exactly as locked:** 5 tickets/day, ad or wait refill, **story stages always playable** (maybe slower). Never Shadow Fight hard-lock.
+5. **Battle pass ₹149–249** (not $9.99). Earn-back enough coins to buy the *next* pass by playing. Cosmetics + card backs + titles. **No unique power on the paid track.**
+6. **Regional pricing** on every SKU (Clash Royale 2025). India ₹49 / ₹99 / ₹199 rungs. US/UK can be 3–4×. Block gifting from cheap regions.
+7. **Ads:** rewarded only at *opt-in* (ticket refill, extra 1-of-3 reroll, one revive). Interstitial only after a *lost* fight or returning to the act map. **Never mid-over.** Cap ~2 rewarded / session. **38% of Indian surveyed players said they would quit if ads are excessive.**
+8. **Remove-ads IAP** (₹199–349) so diaspora and haters of ads have an exit. Does not grant power.
+9. **No leftover-gem traps.** SKUs map onto prices. If a kit is ₹99, sell a ₹99 pack, not 80 crystals then 150.
+10. **UPI-first first-week offer** (₹49–79 starter cosmetics + 2 ticket refills). 54% of Indian payers convert in week one — that SKU is the conversion machine, not a ₹2,999 whale crate.
+11. **Duplicate → dust → craft.** Packs that hit cards you own become upgrade currency, not garbage.
+12. **Belgium / strict-EU:** geo-disable *paid random* packs or replace them with the craft shop only. Safer than arguing with gambling law.
+13. **12+ rating, parental spend cap, no loot marketed at kids.** Cricket audience includes minors; we do not need them on packs.
+14. **Live dashboard:** ARPDAU ads vs IAP, ticket-ad attach, pass conversion, D7 by payer/non-payer. If D7 of payers < D7 of F2P, the economy is predatory and we roll it back.
+
+Do 1–4 before closed testing. Do 5–11 before production. Do 12–14 in the first live season.
+
+---
+
 ## 10. Build plan (what to make, in order)
 
 ### 10.1 Vertical slice (4–6 weeks) — kill or continue
